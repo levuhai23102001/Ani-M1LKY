@@ -1,0 +1,22 @@
+.section-ani {
+  margin: 15px 0;
+  .title-name {
+    font-weight: 500;
+    font-family: "AlphaCentauri", sans-serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .css-1n7gpw1-MuiSkeleton-root {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    &::after {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 0, 0, 0.08),
+        transparent
+      );
+    }
+  }
+}

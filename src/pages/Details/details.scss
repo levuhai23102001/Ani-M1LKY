@@ -1,0 +1,108 @@
+@use "../../scss/" as *;
+
+.details-banner {
+  height: 60vh;
+  width: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include overlay();
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
+  }
+}
+.anime-content {
+  position: relative;
+  max-width: 1028px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -350px;
+  padding: 0 2rem;
+  @include flex(flex-start, flex-start);
+  &__poster {
+    flex: 1;
+    &__img {
+      height: 450px;
+      object-fit: cover;
+      border-radius: 20px;
+      flex-shrink: 0;
+    }
+  }
+  &__info {
+    width: 70%;
+    padding-left: 2rem;
+    position: relative;
+    & > * {
+      margin-bottom: 1.5rem;
+    }
+
+    .title {
+      font-size: 3rem;
+      line-height: 1;
+      font-family: "Helvetica Neue", Helvetica, Arial;
+    }
+    .genres {
+      & > * ~ * {
+        margin-left: 0.5rem;
+      }
+
+      &__item {
+        padding: 0.5rem 1.5rem;
+        border: 2px solid $white;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        font-family: "Helvetica Neue", Helvetica, Arial;
+        background-color: #1f1d2b94;
+        cursor: pointer;
+      }
+    }
+    .overview {
+      text-align: justify;
+      font-family: "Helvetica Neue", Helvetica, Arial;
+    }
+    .character {
+      h2 {
+        margin-bottom: 1rem;
+        font-family: "Helvetica Neue", Helvetica, Arial;
+      }
+      .characters {
+        .swiper-slide {
+          width: 100px !important;
+          margin-right: 20px;
+        }
+        &__item {
+          &__img {
+            height: 150px;
+            width: 100px;
+            object-fit: cover;
+            border-radius: 20px;
+            flex-shrink: 0;
+          }
+          &__name {
+            font-size: 15px;
+            text-align: center;
+            font-family: "Helvetica Neue", Helvetica, Arial;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+}

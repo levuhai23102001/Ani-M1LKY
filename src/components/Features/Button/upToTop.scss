@@ -1,0 +1,25 @@
+.btn__up-to-top {
+  z-index: 10;
+  position: fixed;
+  bottom: 60px;
+  right: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .btn-icon {
+    background: #ff3377eb; //b100d5
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    text-align: center;
+    box-icon {
+      transform: translateY(12px);
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+  }
+  &:hover box-icon {
+    transform: translateY(8px);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+}

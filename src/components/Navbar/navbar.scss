@@ -1,0 +1,163 @@
+@import url("http://fonts.cdnfonts.com/css/alphacentauri");
+
+.ani-navbar {
+  position: fixed;
+  height: 66px;
+  width: 100%;
+  z-index: 9;
+  padding: 0 28px;
+  background: linear-gradient(
+    to bottom,
+    #1f1d2b 0%,
+    #1f1d2b 78%,
+    rgba(31, 29, 43, 75%) 100%
+  );
+  color: whitesmoke;
+  box-shadow: 0 4px 8px rgb(0 0 0 /20%);
+  .navbar-container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.navbar-main-menu {
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .navbar-brand__name {
+    color: whitesmoke;
+    white-space: nowrap;
+  }
+  .main-menu-container {
+    margin: 0 55px;
+    height: 40px;
+    line-height: 40px;
+
+    .navbar-menu-left {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0 30px;
+
+      .menu-item {
+        cursor: pointer;
+        .menu-item__link {
+          position: relative;
+          font-size: 12px;
+          font-family: "AlphaCentauri", sans-serif;
+          font-weight: 600;
+          padding: 15px 0;
+          color: whitesmoke;
+          white-space: nowrap;
+          &:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            right: 50%;
+            height: 2.5px;
+            background-color: #ff3377;
+            transition: all 0.3s ease-in-out;
+          }
+          &.active {
+            color: #ff3377;
+            &:before {
+              width: 100%;
+              left: 0;
+              right: 0;
+            }
+          }
+          &:hover {
+            color: #ff3377;
+            transition: all 0.3s ease;
+            // &:before {
+            //   width: 100%;
+            //   left: 0;
+            //   right: 0;
+            // }
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar-brand__name {
+  font-size: 1.6rem;
+  font-family: "AlphaCentauri", sans-serif;
+  font-weight: 600;
+}
+
+.navbar-minor-menu {
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 66px;
+  .minor-menu-container {
+    margin: 0 55px;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .navbar-menu-right {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0 30px;
+
+      .ani-navbar-topup {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        .topup-btn {
+          border: 1.5px solid #fff;
+          border-radius: 15px;
+          line-height: 22px;
+          padding: 3px 12px 3px 8px;
+          display: flex;
+          font-size: 14px;
+          font-family: Arial, Helvetica, sans-serif;
+
+          .topup-icon {
+            background-image: url(../../assets/Icons/diamondIcon.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: inline-block;
+            flex-grow: 0;
+            flex-shrink: 0;
+            height: 22px;
+            width: 22px;
+          }
+        }
+      }
+
+      .menu-item {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        .menu-item-link {
+          height: 40px;
+          line-height: 55px;
+          color: whitesmoke;
+        }
+      }
+    }
+  }
+}
+
+.ani-nav-user-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 10px;
+}

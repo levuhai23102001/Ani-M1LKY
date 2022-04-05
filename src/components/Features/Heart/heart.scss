@@ -1,0 +1,33 @@
+.heart-btn {
+  cursor: pointer;
+  display: flex;
+  &__left-icon {
+    background-color: #fff;
+    background-position: center;
+    background-size: contain;
+    height: 18px;
+    opacity: 1;
+    width: 13px;
+    margin-right: -5px;
+    -webkit-mask-image: url(../../../assets/Icons/broken-heart-left.svg);
+    transition: 0.3s;
+  }
+  &__right-icon {
+    background-color: #fff;
+    background-position: center;
+    background-size: contain;
+    height: 18px;
+    opacity: 1;
+    width: 13px;
+    -webkit-mask-image: url(../../../assets/Icons/broken-heart-right.svg);
+    transition: 0.3s;
+  }
+  &:hover .heart-btn__left-icon {
+    transform: translateX(-3px);
+    transition: 0.3s;
+  }
+  &:hover .heart-btn__right-icon {
+    transform: translateX(3px);
+    transition: 0.3s;
+  }
+}

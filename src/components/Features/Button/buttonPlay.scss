@@ -1,0 +1,21 @@
+.btn-play {
+  position: relative;
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  svg {
+    color: #fff;
+    font-size: 60px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    svg {
+      color: #ff3377;
+      border-color: #ff3377;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

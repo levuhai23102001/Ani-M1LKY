@@ -1,0 +1,31 @@
+.navbar-searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  padding: 0 15px 0 15px;
+  border-radius: 15px;
+  outline: none;
+  border: 2px solid transparent;
+  width: 225px;
+  height: 32px;
+  line-height: 32px;
+  background-color: #2d2a3e;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  &.wide {
+    width: 350px;
+    border: 2px solid #fff;
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  svg {
+    color: #a3a3a3;
+    padding-right: 5px;
+  }
+  input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: whitesmoke;
+    width: 270px;
+  }
+}

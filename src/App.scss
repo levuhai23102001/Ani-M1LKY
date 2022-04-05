@@ -1,0 +1,94 @@
+@use "./scss/" as *;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+body {
+  color: $txt-color;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: $body-bg;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.555);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  position: relative;
+  .ani-main-content {
+    position: relative;
+    width: 100%;
+    top: 66px;
+    display: flex;
+    justify-content: flex-start;
+    .ani-sidebar.collapse ~ .main-content-container {
+      left: 72px;
+      width: calc(100% - 72px);
+    }
+    .main-content-container {
+      position: absolute;
+      left: 220px;
+      width: calc(100% - 220px);
+      .wrapper {
+        // width: calc(100% - 72px);
+        margin: 0 30px;
+        // min-height: 100vh;
+        // padding: 0 40px;
+        .genre-btn-list {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0 20px;
+          margin-left: 20px;
+        }
+        .btn-list-layout {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 0 10px;
+          svg {
+            height: 35px;
+            width: 40px;
+            padding: 5px;
+            border-radius: 8px;
+            border: 1px solid;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
