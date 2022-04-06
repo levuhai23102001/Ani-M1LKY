@@ -22,7 +22,7 @@ export const FavAniData = [
     genre: "Romance, Drama",
   },
   {
-    name: "Jujutsu Kaisen",
+    name: "Jujutsu Kaisen Season 1",
     episode: "EP24",
     rank: "10",
     img: KaisenImg,
@@ -67,7 +67,7 @@ export const NewAniData = [
     img: MyDressUpImg,
   },
   {
-    name: "Jujutsu Kaisen",
+    name: "Jujutsu Kaisen Season 1",
     episode: "EP24",
     rank: "10",
     img: KaisenImg,

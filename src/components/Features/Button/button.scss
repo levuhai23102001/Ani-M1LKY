@@ -1,3 +1,5 @@
+@use "../../../scss/" as *;
+
 .ani-btn-group {
   position: relative;
   .ani-button {
@@ -25,9 +27,9 @@
     span {
       display: inline-block;
       color: #fff;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 400;
-      font-family: "Helvetica Neue", Helvetica, Arial;
+      font-family: $main-fontFamily;
       white-space: nowrap;
     }
   }

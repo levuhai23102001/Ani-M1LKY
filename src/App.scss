@@ -1,5 +1,7 @@
 @use "./scss/" as *;
 
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -44,6 +46,12 @@ li {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.container {
+  max-width: 1028px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .App {

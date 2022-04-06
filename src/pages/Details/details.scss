@@ -55,7 +55,7 @@
     .title {
       font-size: 3rem;
       line-height: 1;
-      font-family: "Helvetica Neue", Helvetica, Arial;
+      font-family: $main-fontFamily;
     }
     .genres {
       & > * ~ * {
@@ -68,19 +68,26 @@
         border-radius: 30px;
         font-size: 0.8rem;
         font-weight: 600;
-        font-family: "Helvetica Neue", Helvetica, Arial;
+        font-family: $main-fontFamily;
         background-color: #1f1d2b94;
         cursor: pointer;
       }
     }
     .overview {
       text-align: justify;
-      font-family: "Helvetica Neue", Helvetica, Arial;
+      font-family: $main-fontFamily;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-word;
+      margin-bottom: 0.4rem !important;
     }
     .character {
       h2 {
         margin-bottom: 1rem;
-        font-family: "Helvetica Neue", Helvetica, Arial;
+        font-family: $main-fontFamily;
       }
       .characters {
         .swiper-slide {
@@ -98,11 +105,20 @@
           &__name {
             font-size: 15px;
             text-align: center;
-            font-family: "Helvetica Neue", Helvetica, Arial;
+            font-family: $main-fontFamily;
             margin-top: 5px;
           }
         }
       }
+    }
+  }
+}
+
+.details-wrapper {
+  .trailer {
+    &__title {
+      font-family: $main-fontFamily;
+      margin-bottom: 10px;
     }
   }
 }

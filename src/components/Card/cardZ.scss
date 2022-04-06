@@ -1,3 +1,5 @@
+@use "../../scss/" as *;
+
 .ani-cardZ {
   --spacing: 20px;
   --column: 3;
@@ -26,7 +28,7 @@
     clip-path: polygon(100% 0, 100% 100%, 50% 75%, 0 100%, 0 0);
     span {
       font-size: 36px; //26
-      font-family: "AlphaCentauri", sans-serif;
+      font-family: $main-fontFamily;
     }
   }
   .cardZ-top {
@@ -47,7 +49,7 @@
       span {
         font-size: 14px;
         font-weight: 600;
-        font-family: "AlphaCentauri", sans-serif;
+        font-family: $main-fontFamily;
       }
     }
     .cardZ-img {
@@ -66,21 +68,21 @@
     .cardZ-title {
       font-weight: 500;
       margin: 5px 0;
-      font-family: "AlphaCentauri", sans-serif;
-      font-size: 20px;
+      font-family: $main-fontFamily;
+      font-size: 24px;
       line-height: 1.3;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
       word-break: break-word;
-      flex: 1;
+      flex: 2;
     }
     .cardZ-genre {
       margin-top: 5px;
       font-size: 15px;
-      font-family: "Helvetica Neue", Helvetica, Arial;
+      font-family: $main-fontFamily;
     }
     .cardZ-play-btn {
       margin-top: 15px;
@@ -96,7 +98,7 @@
       margin-top: 20px;
       span {
         font-weight: 500;
-        font-family: "AlphaCentauri", sans-serif;
+        font-family: $main-fontFamily;
         font-size: 14px;
         padding-left: 5px;
       }

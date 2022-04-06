@@ -1,3 +1,5 @@
+@use "../../scss/" as *;
+
 .ani-sidebar {
   height: calc(100vh - 66px);
   background: linear-gradient(
@@ -47,9 +49,9 @@
           }
           span {
             margin-left: 3px;
-            font-size: 14px;
+            font-size: 18px;
             font-weight: 400;
-            font-family: "AlphaCentauri", sans-serif;
+            font-family: $main-fontFamily;
             opacity: 1;
             pointer-events: auto;
           }
@@ -114,9 +116,9 @@
         }
         span {
           margin-left: 3px;
-          font-size: 14px;
+          font-size: 20px;
           font-weight: 400;
-          font-family: "AlphaCentauri", sans-serif;
+          font-family: $main-fontFamily;
           opacity: 1;
           pointer-events: auto;
         }
@@ -142,7 +144,7 @@
       margin-left: 3px;
       font-size: 14px;
       font-weight: 400;
-      font-family: "AlphaCentauri", sans-serif;
+      font-family: $main-fontFamily;
       opacity: 0;
       pointer-events: none;
       white-space: nowrap;
@@ -161,7 +163,7 @@
           margin-left: 3px;
           font-size: 14px;
           font-weight: 400;
-          font-family: "AlphaCentauri", sans-serif;
+          font-family: $main-fontFamily;
           opacity: 0;
           pointer-events: none;
           white-space: nowrap;

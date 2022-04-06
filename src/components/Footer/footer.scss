@@ -1,6 +1,8 @@
+@use "../../scss/" as *;
+
 .footer {
   margin-top: 10px;
-  padding: 45px 50px 35px 50px;
+  padding: 45px 50px 15px 50px;
   background-image: linear-gradient(
       to bottom,
       #1f1d2b 23%,
@@ -19,8 +21,8 @@
     grid-gap: 0 100px;
   }
   &-brand__name {
-    font-size: 2rem;
-    font-family: "AlphaCentauri", sans-serif;
+    font-size: 2.65rem;
+    font-family: $main-fontFamily;
     font-weight: 600;
     color: #fff;
     margin-bottom: 20px;
@@ -29,7 +31,7 @@
     margin-top: 20px;
     margin-bottom: 30px;
     font-style: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial;
+    font-family: $main-fontFamily;
   }
   &-social {
     display: flex;
@@ -45,14 +47,14 @@
     }
   }
   &-copyright {
-    font-family: "AlphaCentauri", sans-serif;
+    font-family: $main-fontFamily;
     font-size: 14px;
     color: #d8d8d8;
   }
   &-heading {
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 500;
-    font-family: "AlphaCentauri", sans-serif;
+    font-family: $main-fontFamily;
     margin-bottom: 30px;
   }
   &-item {
@@ -60,7 +62,7 @@
   }
   &-item__link {
     color: #fff;
-    font-family: "Helvetica Neue", Helvetica, Arial;
+    font-family: $main-fontFamily;
     &:hover {
       color: #ff3377;
       transition: 0.3s ease;

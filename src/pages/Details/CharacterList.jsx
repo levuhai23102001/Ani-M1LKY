@@ -3,10 +3,11 @@ import { Mousewheel } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import GojoImg from "../../assets/images/characters/gojo.jpg";
 import "swiper/css";
-const CharacterLists = () => {
+const CharacterList = () => {
   return (
     <div className="characters">
       <Swiper
+        slidesPerView={5}
         grabCursor={true}
         mousewheel={true}
         modules={[Mousewheel]}
@@ -65,4 +66,4 @@ const CharacterLists = () => {
   );
 };
 
-export default CharacterLists;
+export default CharacterList;

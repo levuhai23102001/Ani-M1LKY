@@ -1,4 +1,4 @@
-@import url("http://fonts.cdnfonts.com/css/alphacentauri");
+@use "../../scss/" as *;
 
 .ani-navbar {
   position: fixed;
@@ -28,9 +28,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .navbar-brand__name {
-    color: whitesmoke;
-    white-space: nowrap;
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__name {
+      font-size: 2rem;
+      color: whitesmoke;
+      white-space: nowrap;
+      font-family: $main-fontFamily;
+      font-weight: 600;
+    }
   }
   .main-menu-container {
     margin: 0 55px;
@@ -47,8 +55,8 @@
         cursor: pointer;
         .menu-item__link {
           position: relative;
-          font-size: 12px;
-          font-family: "AlphaCentauri", sans-serif;
+          font-size: 16px;
+          font-family: $main-fontFamily;
           font-weight: 600;
           padding: 15px 0;
           color: whitesmoke;
@@ -56,7 +64,7 @@
           &:before {
             content: "";
             position: absolute;
-            bottom: 0;
+            bottom: 10px;
             left: 50%;
             width: 0;
             right: 50%;
@@ -85,12 +93,6 @@
       }
     }
   }
-}
-
-.navbar-brand__name {
-  font-size: 1.6rem;
-  font-family: "AlphaCentauri", sans-serif;
-  font-weight: 600;
 }
 
 .navbar-minor-menu {
@@ -126,7 +128,7 @@
           padding: 3px 12px 3px 8px;
           display: flex;
           font-size: 14px;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: $main-fontFamily;
 
           .topup-icon {
             background-image: url(../../assets/Icons/diamondIcon.png);

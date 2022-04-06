@@ -1,3 +1,5 @@
+@use "../../scss/" as *;
+
 .ani-card {
   --spacing: 20px;
   --column: 6;
@@ -24,7 +26,7 @@
     span {
       font-size: 16px;
       font-weight: 600;
-      font-family: "AlphaCentauri", sans-serif;
+      font-family: $main-fontFamily;
     }
   }
   .css-1slz293-MuiSkeleton-root {
@@ -89,7 +91,8 @@
       font-weight: 500;
       margin: 5px 0;
       line-height: 1.2;
-      font-family: "AlphaCentauri", sans-serif;
+      font-family: $main-fontFamily;
+      font-size: 22px;
       flex: 1;
       display: -webkit-box;
       -webkit-line-clamp: 3;
@@ -125,8 +128,8 @@
         }
         span {
           font-weight: 500;
-          font-family: "AlphaCentauri", sans-serif;
-          font-size: 12px;
+          font-family: $main-fontFamily;
+          font-size: 14px;
           padding-left: 5px;
         }
       }

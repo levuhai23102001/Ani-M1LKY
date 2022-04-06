@@ -17,7 +17,7 @@ function Navbar() {
       <div className="navbar-container">
         <div className="navbar-main-menu">
           <Link to="/" className="navbar-brand">
-            <img src="" alt="" className="navbar-logo" />
+            <img src="" alt="" className="navbar-brand__logo" />
             <span className="navbar-brand__name">ANI M1LKY</span>
           </Link>
           <div className="main-menu-container">

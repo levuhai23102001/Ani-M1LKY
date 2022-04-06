@@ -1,8 +1,9 @@
 import React from "react";
-import CharacterLists from "./CharacterLists";
+import CharacterList from "./CharacterList";
 import KaisenBanner from "../../assets/banners/Jujutsukaisen.jpg";
 import KaisenImg from "../../assets/images/anime/jujutsukaisen.jpg";
 import "./details.scss";
+import TrailerList from "./TrailerList";
 const Details = () => {
   return (
     <>
@@ -11,7 +12,7 @@ const Details = () => {
           className="details-banner"
           style={{ backgroundImage: `url(${KaisenBanner})` }}
         ></div>
-        <div className="anime-content">
+        <div className="anime-content container">
           <div className="anime-content__poster">
             <img
               src={KaisenImg}
@@ -20,7 +21,7 @@ const Details = () => {
             />
           </div>
           <div className="anime-content__info">
-            <h1 className="title">Jujutsu Kaisen</h1>
+            <h1 className="title">Jujutsu Kaisen Season 1</h1>
             <div className="genres">
               <span className="genres__item">Action</span>
               <span className="genres__item">Fantasy</span>
@@ -42,9 +43,12 @@ const Details = () => {
             </p>
             <div className="character">
               <h2>Characters</h2>
-              <CharacterLists />
+              <CharacterList />
             </div>
           </div>
+        </div>
+        <div className="container">
+          <TrailerList />
         </div>
       </div>
     </>
