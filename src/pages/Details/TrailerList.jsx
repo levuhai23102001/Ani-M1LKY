@@ -27,7 +27,7 @@ const Trailer = (props) => {
         ref={iframeRef}
         width="100%"
         title="video"
-        frameborder="0"
+        frameBorder="0"
       ></iframe>
     </div>
   );
