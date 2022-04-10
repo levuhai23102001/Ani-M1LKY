@@ -90,10 +90,6 @@
         font-family: $main-fontFamily;
       }
       .characters {
-        .swiper-slide {
-          width: 100px !important;
-          margin-right: 20px;
-        }
         &__item {
           &__img {
             height: 150px;
@@ -104,9 +100,9 @@
           }
           &__name {
             font-size: 15px;
-            text-align: center;
             font-family: $main-fontFamily;
             margin-top: 5px;
+            padding-left: 12px;
           }
         }
       }
@@ -117,8 +113,15 @@
 .details-wrapper {
   .trailer {
     &__title {
+      font-size: 16px;
       font-family: $main-fontFamily;
-      margin-bottom: 10px;
+      margin: 10px 0;
     }
+  }
+}
+
+.swiper-slide {
+  .ani-card {
+    width: calc(100% - 20px);
   }
 }

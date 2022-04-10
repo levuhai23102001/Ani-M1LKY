@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 
-const TrailerList = () => {
+const TrailerList = (props) => {
   return (
     <>
-      <Trailer />
+      <Trailer embed={props.trailer} />
     </>
   );
 };
@@ -23,7 +23,7 @@ const Trailer = (props) => {
       </div>
       <iframe
         style={{ borderRadius: 12 }}
-        src="https://www.youtube.com/embed/eGSL-l95VXw"
+        src={props.embed}
         ref={iframeRef}
         width="100%"
         title="video"

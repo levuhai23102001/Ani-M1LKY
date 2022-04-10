@@ -1,9 +1,14 @@
 import React from "react";
 import CharacterList from "./CharacterList";
+import TrailerList from "./TrailerList";
+import ItemCard from "../../components/Card/ItemCard";
+import ListItem from "../../components/ListItem/ListItem";
+import { FavAniData } from "../../AniData/AniData";
+import { Swiper, SwiperSlide } from "swiper/react";
 import KaisenBanner from "../../assets/banners/Jujutsukaisen.jpg";
 import KaisenImg from "../../assets/images/anime/jujutsukaisen.jpg";
+import "swiper/css";
 import "./details.scss";
-import TrailerList from "./TrailerList";
 const Details = () => {
   return (
     <>
@@ -19,6 +24,7 @@ const Details = () => {
               alt=""
               className="anime-content__poster__img"
             />
+            <div className="overlay"></div>
           </div>
           <div className="anime-content__info">
             <h1 className="title">Jujutsu Kaisen Season 1</h1>
@@ -48,7 +54,31 @@ const Details = () => {
           </div>
         </div>
         <div className="container">
-          <TrailerList />
+          <TrailerList trailer="https://www.youtube.com/embed/eGSL-l95VXw" />
+          <TrailerList trailer="https://www.youtube.com/embed/-iun6KPT4SM" />
+        </div>
+        <div className="container">
+          <div className="trailer__title">
+            <h2>Similar</h2>
+          </div>
+          <ListItem>
+            <Swiper
+              slidesPerView={5}
+              freeMode={true}
+              className="mySwiper__similar"
+            >
+              {FavAniData.map((item, index) => (
+                <SwiperSlide>
+                  <ItemCard
+                    key={index}
+                    img={item.img}
+                    name={item.name}
+                    episode={item.episode}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </ListItem>
         </div>
       </div>
     </>

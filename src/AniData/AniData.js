@@ -9,7 +9,7 @@ import ClasroomEliteImg from "../assets/images/anime/classroomofelite.jpg";
 export const FavAniData = [
   {
     name: "Shingeki no Kyojin Season 4",
-    episode: "EP10",
+    episode: "EP12",
     rank: "1",
     img: Aot4Img,
     genre: "Action, Fantasy",
@@ -46,7 +46,7 @@ export const FavAniData = [
     img: Aot4Img,
   },
   {
-    name: "Jujutsu Kaisen",
+    name: "Jujutsu Kaisen Season 1",
     episode: "EP24",
     rank: "10",
     img: KaisenImg,

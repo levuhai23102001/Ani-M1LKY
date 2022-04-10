@@ -39,7 +39,7 @@ function Navbar() {
               <li className="ani-navbar-topup">
                 <div className="topup-btn">
                   <div className="topup-icon"></div>
-                  Nạp
+                  Top Up
                 </div>
               </li>
               <li className="menu-item">

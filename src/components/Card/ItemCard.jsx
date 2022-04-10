@@ -51,13 +51,6 @@ const ItemCard = (props) => {
         ) : (
           <Skeleton animation="wave" variant="text" height={12} width={150} />
         )}
-        {/* <div className="card-bottom">
-          <div className="card-view">
-            <VisibilityIcon fontSize="small" />
-            <span>15.000 views</span>
-          </div>
-          <FavoriteBorderIcon fontSize="medium" />
-        </div> */}
       </div>
     </div>
   );

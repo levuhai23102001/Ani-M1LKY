@@ -15,6 +15,7 @@ import RefreshPage from "./components/Features/ScrollToTop/RefreshPage";
 import UpToTop from "./components/Features/Button/UpToTop";
 import "./App.scss";
 import Rank from "./pages/Rank";
+import Watch from "./pages/Watch/Watch";
 function App() {
   const [showUpToTop, setShowUpToTop] = useState(false);
   // show scroll to top
@@ -47,6 +48,7 @@ function App() {
             <Route path="/favorites" element={<Favorite />} />
             <Route path="/rank" element={<Rank />} />
             <Route path="/:id" element={<Details />} />
+            <Route path="watch" element={<Watch />} />
           </Routes>
           {showUpToTop && <UpToTop />}
           <Footer />
