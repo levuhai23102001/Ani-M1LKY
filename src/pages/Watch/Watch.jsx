@@ -1,6 +1,8 @@
 import React from "react";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
+import StarIcon from "@mui/icons-material/Star";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import ListEpisode from "./ListEpisode";
 import aot4 from "../../assets/images/anime/aot4.jpg";
 import Video from "../Watch/video.webm";
@@ -25,7 +27,7 @@ const Watch = () => {
                       </h2>
                       <div className="info-ani__toolbar">
                         <div className="info-ani__toolbar__btnFav">
-                          <FavoriteBorderIcon fontSize="small" />
+                          <FavoriteIcon fontSize="small" />
                           <span>Favorite</span>
                         </div>
                         <div className="info-ani__toolbar__btnShare">
@@ -34,7 +36,19 @@ const Watch = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="info-ani__subtitle"></div>
+                    <div className="info-ani__subtitle">
+                      <div className="rate">
+                        <StarIcon fontSize="small" />
+                        <span className="rate__txt">9.8</span>
+                      </div>
+                      <span className="ani__name">
+                        Attack on Titan Final Season
+                      </span>
+                      <div className="view">
+                        <VisibilityIcon fontSize="small" />
+                        <span className="view__txt">2310k views</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="ani-player">
