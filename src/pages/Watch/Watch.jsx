@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import StarIcon from "@mui/icons-material/Star";
@@ -7,6 +7,7 @@ import ListEpisode from "./ListEpisode";
 import aot4 from "../../assets/images/anime/aot4.jpg";
 import Video from "../Watch/video.webm";
 import "./watch.scss";
+import Tabs from "../../components/Tabs/Tabs";
 
 const Watch = () => {
   return (
@@ -54,10 +55,12 @@ const Watch = () => {
                 <div className="ani-player">
                   <div className="ani-player__controls"></div>
                   <div className="video-player">
-                    <video src={Video} autoPlay></video>
+                    <video src={Video} controls></video>
                   </div>
                 </div>
-                <div className="ani-watch__footer"></div>
+                <div className="ani-watch__footer">
+                  <Tabs />
+                </div>
               </div>
             </div>
             <div className="ani-watch__ep__container">

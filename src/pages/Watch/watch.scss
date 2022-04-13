@@ -41,7 +41,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         line-height: 1;
       }
       &__title {
@@ -65,6 +65,7 @@
           span {
             font-family: $main-fontFamily;
             margin-left: 3px;
+            padding-top: 3px;
           }
         }
         &__btnShare {
@@ -80,13 +81,14 @@
           span {
             font-family: $main-fontFamily;
             margin-left: 3px;
+            margin-top: 3px;
           }
         }
       }
       &__subtitle {
         display: flex;
         align-items: center;
-        line-height: 1;
+
         & > * {
           margin-left: 20px;
         }
@@ -107,6 +109,8 @@
           }
           &__txt {
             font-family: $main-fontFamily;
+            line-height: 1;
+            padding-top: 3px;
           }
         }
         .ani__name {
@@ -130,6 +134,7 @@
   &__footer {
     background: $player-bg;
     border-radius: 0 0 6px 6px;
+    padding: 10px;
   }
   .ani-player {
     background-color: #000;

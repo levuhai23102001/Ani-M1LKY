@@ -10,7 +10,7 @@ const Genre = () => {
     <>
       <div className="wrapper">
         <div className="genre-wrapper">
-          <Section title="Danh sách Anime" className="ani-genre-title">
+          <Section title="Anime List" className="ani-genre-title">
             <ListItem cName="list-item-genre">
               <div className="genre-btn-list">
                 {GenreData.map((item, index) => (

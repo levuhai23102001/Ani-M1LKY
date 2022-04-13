@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Footer from "./components/Footer/Footer";
-import MyRoutes from "./Config/MyRoutes";
+import MyRoutes from "./Routers/MyRoutes";
 import ScrollToTop from "./components/Features/ScrollToTop/ScrollToTop";
 import RefreshPage from "./components/Features/ScrollToTop/RefreshPage";
 import UpToTop from "./components/Features/Button/UpToTop";

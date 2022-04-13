@@ -1,0 +1,43 @@
+@use "../../scss/" as *;
+
+.tabs {
+  display: flex;
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid hsla(0, 0%, 60%, 0.2);
+  &-item {
+    display: flex;
+    align-items: center;
+    min-width: 80px;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-family: $main-fontFamily;
+    color: $white;
+    // border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+  &-line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    border-radius: 15px;
+    background-color: $main-color;
+    transition: all 0.2s ease;
+  }
+}
+
+.tab-content {
+  padding: 20px 5px;
+  .tab-pane {
+    color: #fff;
+    font-family: $main-fontFamily;
+    font-size: 20px;
+    display: none;
+  }
+  .tab-pane.active {
+    display: block;
+  }
+}
