@@ -15,17 +15,24 @@
     color: $white;
     // border-bottom: 1px solid transparent;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
   }
   &-line {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -2px;
     width: 0;
     height: 3px;
     border-radius: 15px;
     background-color: $main-color;
     transition: all 0.2s ease;
+  }
+  .active {
+    color: $main-color;
+  }
+  :hover {
+    color: $main-color;
+    transition: all 0.3s ease;
   }
 }
 

@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./tabs.scss";
+
 const Tabs = () => {
   const [tabs, setTabs] = useState(0);
-
-  const tabActive = useRef(".tabs-item.active");
-  const tabLine = useRef(null);
+  const tabActive = useRef();
+  console.log(tabActive.current);
+  const tabLine = useRef();
+  console.log(tabLine.current);
 
   useEffect(() => {
-    tabLine.current.getBoundingClientRect().Left =
-      tabActive.current.offsetLeft + "px";
-    tabLine.current.getBoundingClientRect().width =
-      tabActive.current.offsetWidth + "px";
+    tabLine.current.style.left = tabActive.current.offsetLeft + "px";
+    tabLine.current.style.width = tabActive.current.offsetWidth + "px";
   }, [tabs]);
 
   return (
@@ -18,18 +18,21 @@ const Tabs = () => {
       <div className="tabs">
         <div
           className={tabs === 0 ? "tabs-item active" : "tabs-item"}
+          ref={tabs === 0 ? tabActive : null}
           onClick={() => setTabs(0)}
         >
           <span>Overview</span>
         </div>
         <div
-          className={tabs === 0 ? "tabs-item active" : "tabs-item"}
+          className={tabs === 1 ? "tabs-item active" : "tabs-item"}
+          ref={tabs === 1 ? tabActive : null}
           onClick={() => setTabs(1)}
         >
           <span>Comments</span>
         </div>
         <div
-          className={tabs === 0 ? "tabs-item active" : "tabs-item"}
+          className={tabs === 2 ? "tabs-item active" : "tabs-item"}
+          ref={tabs === 2 ? tabActive : null}
           onClick={() => setTabs(2)}
         >
           <span>Rating</span>

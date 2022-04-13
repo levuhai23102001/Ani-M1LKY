@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import StarIcon from "@mui/icons-material/Star";
