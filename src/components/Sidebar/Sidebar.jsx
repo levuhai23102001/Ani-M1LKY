@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import LayersIcon from "@mui/icons-material/Layers";
@@ -12,10 +12,29 @@ import "../Sidebar/sidebar.scss";
 const Sidebar = () => {
   const [collapse, setCollapse] = useState(false);
 
+  // const [sidebarStorage, setSidebarStorage] = useState(() => {
+  //   const storage = localStorage.getItem("sidebar");
+  //   console.log(storage);
+  //   return storage;
+  // });
+  // console.log(sidebarStorage);
+
+  const sidebarRef = useRef();
+  console.log(sidebarRef.current);
+
+  // useEffect(() => {
+  //   setSidebarStorage(() => {
+  //     window.onbeforeunload = () => {
+  //       localStorage.setItem("sidebar", sidebarRef.current);
+  //     };
+  //   });
+  // }, [sidebarStorage]);
+
   return (
     <div
       className={collapse ? "ani-sidebar collapse" : "ani-sidebar"}
       id="side-bar"
+      ref={sidebarRef}
     >
       <div className="ani-sidebar-container">
         <ul className="ani-sidebar-menu">

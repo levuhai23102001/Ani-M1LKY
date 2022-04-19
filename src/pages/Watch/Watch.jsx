@@ -8,7 +8,11 @@ import aot4 from "../../assets/images/anime/aot4.jpg";
 import Video from "../Watch/video.webm";
 import "./watch.scss";
 import Tabs from "../../components/Tabs/Tabs";
-
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FavAniData } from "../../AniData/AniData";
+import ItemCard from "../../components/Card/ItemCard";
+import ListItem from "../../components/ListItem/ListItem";
 const Watch = () => {
   return (
     <>
@@ -66,6 +70,29 @@ const Watch = () => {
             <div className="ani-watch__ep__container">
               <ListEpisode />
             </div>
+          </div>
+          <div className="ani-watch__similar">
+            <div className="ani-watch__similar__title">
+              <h2>Similar</h2>
+            </div>
+            <ListItem>
+              <Swiper
+                slidesPerView={6}
+                freeMode={true}
+                className="mySwiper__similar"
+              >
+                {FavAniData.map((item, index) => (
+                  <SwiperSlide>
+                    <ItemCard
+                      key={index}
+                      img={item.img}
+                      name={item.name}
+                      episode={item.episode}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </ListItem>
           </div>
         </div>
       </div>

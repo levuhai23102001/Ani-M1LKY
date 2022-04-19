@@ -28,7 +28,7 @@
         width: 100%;
         object-fit: cover;
         flex-shrink: 0;
-        border-radius: 8px;
+        border-radius: 6px;
       }
     }
     .info-ani {
@@ -224,5 +224,16 @@
       font-family: $main-fontFamily;
       color: #999;
     }
+  }
+}
+.ani-watch__similar {
+  margin-top: 25px;
+  &__title {
+    font-family: $main-fontFamily;
+    font-size: 20px;
+    line-height: 1;
+  }
+  .ani-list-item {
+    margin-top: 10px;
   }
 }

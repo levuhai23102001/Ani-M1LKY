@@ -7,6 +7,7 @@ import ScrollToTop from "./components/Features/ScrollToTop/ScrollToTop";
 import RefreshPage from "./components/Features/ScrollToTop/RefreshPage";
 import UpToTop from "./components/Features/Button/UpToTop";
 import "./App.scss";
+
 function App() {
   const [showUpToTop, setShowUpToTop] = useState(false);
   // show scroll to top

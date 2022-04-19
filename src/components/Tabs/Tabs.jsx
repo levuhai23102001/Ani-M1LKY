@@ -1,4 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import Overview from "./TabContents/Overview/Overview";
+import Comment from "./TabContents/Comments/Comment";
+import Rating from "./TabContents/Rating/Rating";
 import "./tabs.scss";
 
 const Tabs = () => {
@@ -41,13 +44,13 @@ const Tabs = () => {
       </div>
       <div className="tab-content">
         <div className={tabs === 0 ? "tab-pane active" : "tab-pane"}>
-          <p>Overview Contents</p>
+          <Overview />
         </div>
         <div className={tabs === 1 ? "tab-pane active" : "tab-pane"}>
-          <p>Comments Contents</p>
+          <Comment />
         </div>
         <div className={tabs === 2 ? "tab-pane active" : "tab-pane"}>
-          <p>Rating Star Contents</p>
+          <Rating />
         </div>
       </div>
     </>
