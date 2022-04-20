@@ -12,16 +12,16 @@
     font-size: 26px;
     color: $white;
   }
+  &__divide-line {
+    width: 1px;
+    border-left: 1px solid $gray;
+    height: 16px;
+  }
   &__subtitle {
     display: flex;
     align-items: center;
     & > * {
       margin-right: 15px;
-    }
-    &__divide-line {
-      width: 1px;
-      border-left: 1px solid $gray;
-      height: 16px;
     }
     &__tag-genre {
       display: flex;
@@ -60,9 +60,24 @@
     padding: 0;
     overflow: hidden;
     transition: height 0.3s ease;
+    & > * {
+      margin-bottom: 6px;
+    }
     &.show {
-      height: 200px;
+      height: 250px;
       transition: height 0.3s ease;
+    }
+    &__info--row {
+      display: flex;
+      align-items: center;
+      .overview__divide-line {
+        margin: 0 10px;
+      }
+    }
+    &__desc {
+      margin-top: 20px;
+      text-align: justify;
+      line-height: 1.25;
     }
   }
 }
