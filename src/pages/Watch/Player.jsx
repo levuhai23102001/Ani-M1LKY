@@ -35,7 +35,6 @@ const Player = () => {
       videoRef.current.pause();
     }
   };
-
   // Ended Video
   const onEnded = () => {
     setShowReplay(true);
@@ -89,9 +88,18 @@ const Player = () => {
           <div className="ani-player">
             <div className="ani-player__controls">
               <div className="ani-player__progress">
-                <div className="progress-bar"></div>
+                {/* <div className="progress-bar"></div> */}
+                <progress className="progress-bar" min="0" max="100"></progress>
+                <input
+                  className="seek-bar"
+                  min="0"
+                  max="100"
+                  type="range"
+                  step="1"
+                ></input>
               </div>
               <div className="ani-player__left">
+                {/* ended show replay button */}
                 {!showReplay ? (
                   <div
                     className="ani-player__btn play-pause-control"
@@ -108,18 +116,29 @@ const Player = () => {
                     <SettingsBackupRestoreRoundedIcon onClick={handleReplay} />
                   </div>
                 )}
-
-                {/* <div className="ani-player__btn next5s-control">
+                <div className="ani-player__btn next5s-control">
                   <Forward5RoundedIcon />
-                </div> */}
+                </div>
                 <div className="ani-player__btn volume-control">
                   <VolumeUpRoundedIcon />
+                  <input
+                    className="volume"
+                    type="range"
+                    max="1"
+                    min="0"
+                    step="0.01"
+                  />
                 </div>
-              </div>
-              <div className="ani-player__right">
+                <div className="ani-player__timer">
+                  <span className="time-elapsed">00:00</span>
+                  <span> / </span>
+                  <span className="duration">00:00</span>
+                </div>
                 {/* <div className="ani-player__btn volume-mute-control">
                   <VolumeMuteRoundedIcon fontSize="medium" />
                 </div> */}
+              </div>
+              <div className="ani-player__right">
                 <div className="ani-player__btn pip-control">
                   <PictureInPictureAltRoundedIcon />
                 </div>

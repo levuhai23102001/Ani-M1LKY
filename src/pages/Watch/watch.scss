@@ -151,11 +151,11 @@
       align-items: center;
       justify-content: space-between;
       background-color: rgba(0, 0, 0, 0.65);
-      height: 40px;
+      height: 45px;
       width: 100%;
       padding: 0 10px;
       z-index: 1;
-      transform: translateY(0px); //36
+      transform: translateY(40px);
       transition-delay: 3s;
       transition-duration: 0.3s;
     }
@@ -182,17 +182,47 @@
       top: 0;
       left: 0;
       right: 0;
-      width: 100%;
-      height: 4px;
-      background-color: #999;
+      height: 5px;
+      // background-color: #999;
       cursor: pointer;
       .progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
         background-color: $main-color;
-        width: 50%;
+        width: 100%;
         height: 100%;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
+        pointer-events: none;
       }
+      .seek-bar {
+        -webkit-appearance: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        outline: none;
+        cursor: pointer;
+      }
+      .seek-bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: $main-color;
+        cursor: pointer;
+      }
+    }
+    &__timer {
+      font-family: $main-fontFamily;
+      font-style: 16px;
     }
     &__btn {
       display: flex;
@@ -292,5 +322,26 @@
   }
   .ani-list-item {
     margin-top: 10px;
+  }
+}
+.volume-control {
+  .volume {
+    -webkit-appearance: none;
+    margin-left: 5px;
+    height: 5px;
+    width: 100px;
+    border-radius: 3px;
+    background-color: #999;
+    cursor: pointer;
+  }
+
+  .volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $main-color;
+    cursor: pointer;
   }
 }
