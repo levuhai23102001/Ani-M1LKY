@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import "./overview.scss";
 const Overview = () => {

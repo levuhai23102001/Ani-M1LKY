@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
@@ -77,10 +77,9 @@ const Sidebar = () => {
         className="sidebar-arrow-btn"
         onClick={(e) => setCollapse(!collapse)}
       >
-        {!collapse && (
+        {!collapse ? (
           <img src={ArrowBackIcon} alt="" className="sidebar-arrow-icon" />
-        )}
-        {collapse && (
+        ) : (
           <img src={ArrowIcon} alt="" className="sidebar-arrow-icon" />
         )}
       </div>

@@ -137,11 +137,68 @@
     padding: 10px;
   }
   .ani-player {
+    position: relative;
     background-color: #000;
     outline: none;
     overflow: hidden;
     padding-right: 0 !important;
-    z-index: 0;
+    &__controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: rgba(0, 0, 0, 0.65);
+      height: 40px;
+      width: 100%;
+      padding: 0 10px;
+      z-index: 1;
+      transform: translateY(0px); //36
+      transition-delay: 3s;
+      transition-duration: 0.3s;
+    }
+    &:hover {
+      .ani-player__controls {
+        transform: translateY(0);
+        transition: 0.3s ease;
+      }
+    }
+    &__left {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0 10px;
+    }
+    &__right {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0 15px;
+    }
+    &__progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 4px;
+      background-color: #999;
+      cursor: pointer;
+      .progress-bar {
+        background-color: $main-color;
+        width: 50%;
+        height: 100%;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+    }
+    &__btn {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
     .video-player {
       object-fit: contain;
       outline: none;
