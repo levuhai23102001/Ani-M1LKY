@@ -28,7 +28,7 @@ const Player = () => {
   const videoRef = useRef();
   const progressRef = useRef();
   const animationRef = useRef();
-
+  const volumeRef = useRef();
   //Play & Pause
   const handlePlayPause = () => {
     const prevValue = isPlaying;
@@ -55,22 +55,12 @@ const Player = () => {
     );
     setCurrentTime(progressRef.current.value);
   };
-  // Ended Video
-  const onEnded = () => {
-    setShowReplay(true);
-  };
-  const handleReplay = () => {
-    setShowReplay(false);
-    videoRef.current.play();
-  };
-
   //Duration
   useEffect(() => {
     const times = Math.floor(videoRef.current.duration);
     setDuration(times);
     progressRef.current.max = times;
   }, [videoRef?.current?.loadedmetadata, videoRef?.current?.readyState]);
-
   //Format time video
   const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60);
@@ -79,16 +69,26 @@ const Player = () => {
     const reSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
     return `${reMinutes}:${reSeconds}`;
   };
-
   //Current time video
   const changeRange = () => {
     videoRef.current.currentTime = progressRef.current.value;
     changePlayerCurrentTime();
   };
-
+  // Ended Video
+  const onEnded = () => {
+    setShowReplay(true);
+  };
+  const handleReplay = () => {
+    setShowReplay(false);
+    videoRef.current.play();
+  };
+  //Volume change
+  // const changeVolume = () => {
+  //   volumeRef.current.style.setProperty()
+  // }
   // Zoom out
   const handleZoomOut = () => {
-    videoRef.current.requestFullscreen();
+    videoRef.current.webkitRequestFullscreen();
   };
 
   return (
@@ -139,6 +139,9 @@ const Player = () => {
                   ref={progressRef}
                   onChange={changeRange}
                 ></input>
+                <div className="seek-tooltip" id="seek-tooltip">
+                  00:00
+                </div>
               </div>
               <div className="ani-player__left">
                 {!showReplay ? (
@@ -162,13 +165,7 @@ const Player = () => {
                 </div>
                 <div className="ani-player__btn volume-control">
                   <VolumeUpRoundedIcon />
-                  <input
-                    className="volume"
-                    type="range"
-                    max="1"
-                    min="0"
-                    step="0.01"
-                  />
+                  <input className="volume" type="range" ref={volumeRef} />
                 </div>
                 <div className="ani-player__timer">
                   <span className="time-elapsed">

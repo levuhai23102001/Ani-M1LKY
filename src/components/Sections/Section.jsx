@@ -13,8 +13,16 @@ const Section = (props) => {
           <Skeleton variant="text" height={50} width={220} />
         )}
       </div>
-      <div className="section-content">{props.children}</div>
+      <SectionContent>{props.children}</SectionContent>
     </section>
+  );
+};
+
+const SectionContent = (props) => {
+  return (
+    <>
+      <div className="section-content">{props.children}</div>
+    </>
   );
 };
 

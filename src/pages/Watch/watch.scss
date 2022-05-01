@@ -226,6 +226,7 @@
     &__timer {
       font-family: $main-fontFamily;
       font-style: 16px;
+      user-select: none;
     }
     &__btn {
       display: flex;
@@ -247,7 +248,7 @@
   }
   &__ep__container {
     width: 400px;
-    height: 635px;
+    height: 745px; //635px
     background-color: $player-bg;
     padding: 10px 10px 0 10px;
     border-radius: 6px;
@@ -266,7 +267,7 @@
     }
   }
   &__ep__card {
-    --column: 5;
+    --column: 6;
     --spacing: 10px;
     position: relative;
     display: flex;
@@ -329,24 +330,39 @@
 }
 .volume-control {
   .volume {
+    --seek-before-width: 0;
+    --seek-before-color: #ff3377;
     -webkit-appearance: none;
     margin-left: 5px;
     height: 3px;
     width: 100px;
     border-radius: 3px;
-    background-color: hsla(0, 0%, 100%, 0.2);
+    background-color: #646464;
     outline: none;
     cursor: pointer;
+    &::before {
+      content: "";
+      height: 100%;
+      width: var(--seek-before-width);
+      background-color: var(--seek-before-color);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      cursor: pointer;
+    }
   }
 
   .volume::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background: $main-color;
     cursor: pointer;
+    border: none;
+    z-index: 3;
+    box-sizing: border-box;
   }
 }
 
