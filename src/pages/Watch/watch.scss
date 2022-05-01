@@ -155,7 +155,7 @@
       width: 100%;
       padding: 0 10px;
       z-index: 1;
-      transform: translateY(40px);
+      transform: translateY(40px); //40
       transition-delay: 3s;
       transition-duration: 0.3s;
     }
@@ -183,40 +183,43 @@
       left: 0;
       right: 0;
       height: 5px;
-      // background-color: #999;
       cursor: pointer;
-      .progress-bar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: $main-color;
-        width: 100%;
-        height: 100%;
-        border-top-right-radius: 3px;
-        border-bottom-right-radius: 3px;
-        pointer-events: none;
-      }
       .seek-bar {
+        --seek-before-width: 0;
+        --seek-before-color: #ff3377;
         -webkit-appearance: none;
+        appearance: none;
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        margin: 0;
         height: 100%;
         width: 100%;
-        background: transparent;
+        background-color: #646464;
         outline: none;
         cursor: pointer;
+        &::before {
+          content: "";
+          height: 100%;
+          width: var(--seek-before-width);
+          background-color: var(--seek-before-color);
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+          cursor: pointer;
+        }
       }
       .seek-bar::-webkit-slider-thumb {
         -webkit-appearance: none;
-        appearance: none;
-        width: 12px;
-        height: 12px;
+        width: 0;
+        height: 0;
         border-radius: 50%;
-        background: $main-color;
+        border: none;
+        background-color: $main-color;
+        z-index: 3;
+        box-sizing: border-box;
+        transition: all 0.2s ease;
         cursor: pointer;
       }
     }
@@ -328,20 +331,31 @@
   .volume {
     -webkit-appearance: none;
     margin-left: 5px;
-    height: 5px;
+    height: 3px;
     width: 100px;
     border-radius: 3px;
-    background-color: #999;
+    background-color: hsla(0, 0%, 100%, 0.2);
+    outline: none;
     cursor: pointer;
   }
 
   .volume::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: $main-color;
     cursor: pointer;
+  }
+}
+
+.ani-player__progress {
+  &:hover {
+    .seek-bar::-webkit-slider-thumb {
+      height: 12px;
+      width: 12px;
+      transition: all 0.2s;
+    }
   }
 }
