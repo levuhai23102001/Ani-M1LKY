@@ -7,7 +7,8 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import Forward5RoundedIcon from "@mui/icons-material/Forward5Rounded";
 import VolumeUpRoundedIcon from "@mui/icons-material/VolumeUpRounded";
-import VolumeMuteRoundedIcon from "@mui/icons-material/VolumeMuteRounded";
+import VolumeDownRoundedIcon from "@mui/icons-material/VolumeDownRounded";
+import VolumeOffRoundedIcon from "@mui/icons-material/VolumeOffRounded";
 import ZoomOutMapRoundedIcon from "@mui/icons-material/ZoomOutMapRounded";
 import ZoomInMapRoundedIcon from "@mui/icons-material/ZoomInMapRounded";
 import PauseRoundedIcon from "@mui/icons-material/PauseRounded";
@@ -24,6 +25,7 @@ const Player = () => {
   const [showReplay, setShowReplay] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  const [isMuted, setIsMuted] = useState(false);
   //references
   const videoRef = useRef();
   const progressRef = useRef();
@@ -86,6 +88,10 @@ const Player = () => {
   // const changeVolume = () => {
   //   volumeRef.current.style.setProperty()
   // }
+  // Toggle click volume button
+  const handleMuted = () => {
+    setIsMuted(!isMuted);
+  };
   // Zoom out
   const handleZoomOut = () => {
     videoRef.current.webkitRequestFullscreen();
@@ -163,22 +169,24 @@ const Player = () => {
                 <div className="ani-player__btn next5s-control">
                   <Forward5RoundedIcon />
                 </div>
-                <div className="ani-player__btn volume-control">
-                  <VolumeUpRoundedIcon />
-                  <input className="volume" type="range" ref={volumeRef} />
+                <div
+                  className="ani-player__btn volume-control"
+                  onClick={handleMuted}
+                >
+                  {isMuted ? <VolumeOffRoundedIcon /> : <VolumeUpRoundedIcon />}
+
+                  {/* <VolumeDownRoundedIcon /> */}
                 </div>
+                <input className="volume" type="range" ref={volumeRef} />
                 <div className="ani-player__timer">
                   <span className="time-elapsed">
                     {calculateTime(currentTime)}
                   </span>
                   <span> / </span>
                   <span className="duration">
-                    {duration && !isNaN(duration) && calculateTime(duration)}
+                    {duration && `00:00` && calculateTime(duration)}
                   </span>
                 </div>
-                {/* <div className="ani-player__btn volume-mute-control">
-                  <VolumeMuteRoundedIcon fontSize="medium" />
-                </div> */}
               </div>
               <div className="ani-player__right">
                 <div className="ani-player__btn pip-control">
