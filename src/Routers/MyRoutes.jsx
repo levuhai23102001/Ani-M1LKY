@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
+import Home from "../pages/Home/Home";
 import Favorite from "../pages/Favorite";
-import Romance from "../pages/Romance";
-import AllAnime from "../pages/AllAnime";
-import Action from "../pages/Action";
-import Genre from "../pages/Genre";
-import Rank from "../pages/Rank";
+import Romance from "../pages/Genre/Romance";
+import AllAnime from "../pages/Genre/AllAnime";
+import Action from "../pages/Genre/Action";
+import Genre from "../pages/Genre/Genre";
+import Rank from "../pages/Rank/Rank";
 import Watch from "../pages/Watch/Watch";
 import Details from "../pages/Details/Details";
 

@@ -1,9 +1,9 @@
 import React from "react";
-import Section from "../components/Sections/Section";
-import ButtonLink from "../components/Features/Button/ButtonLink";
-import { ListGenreData as GenreData } from "../components/Navbar/NavbarData,";
+import Section from "../../components/Sections/Section";
+import ButtonLink from "../../components/Features/Button/ButtonLink";
+import { ListGenreData as GenreData } from "../../components/Navbar/NavbarData,";
 import { Outlet } from "react-router-dom";
-import ListItem from "../components/ListItem/ListItem";
+import ListItem from "../../components/ListItem/ListItem";
 
 const Genre = () => {
   return (

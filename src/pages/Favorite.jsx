@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CardZ from "../components/Card/CardZ";
-import ItemCard from "../components/Card/ItemCard";
+import CardX from "../components/Card/CardX";
 import ListItem from "../components/ListItem/ListItem";
 import Section from "../components/Sections/Section";
 import { FavAniData } from "../AniData/AniData";
@@ -36,7 +36,7 @@ const Favorite = () => {
             <ListItem cName="list-item-fav">
               {showCard
                 ? FavAniData.map((item, index) => (
-                    <ItemCard
+                    <CardX
                       key={index}
                       img={item.img}
                       name={item.name}

@@ -3,7 +3,7 @@ import ButtonPlay from "../Features/Button/ButtonPlay";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Skeleton from "@mui/material/Skeleton";
-import "./ItemCard.scss";
+import "./CardX.scss";
 
 const ItemCard = (props) => {
   const [loading, setLoading] = useState(false);

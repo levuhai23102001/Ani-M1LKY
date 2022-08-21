@@ -1,19 +1,19 @@
 import React from "react";
-import Slider from "../components/Sliders/Slider";
-import Section from "../components/Sections/Section";
-import ItemCard from "../components/Card/ItemCard";
-import { NewAniData } from "../AniData/AniData";
-import ListItem from "../components/ListItem/ListItem";
+import Slider from "../../components/Sliders/Slider";
+import Section from "../../components/Sections/Section";
+import CardX from "../../components/Card/CardX";
+import { NewAniData } from "../../AniData/AniData";
+import ListItem from "../../components/ListItem/ListItem";
 function Home() {
   return (
     <>
       <div className="wrapper">
         <div className="home-wrapper">
           <Slider />
-          <Section className="ani-update" title="Newest Anime">
+          <Section className="ani-newest" title="Newest Anime">
             <ListItem cName="list-item-update">
               {NewAniData.map((item, index) => (
-                <ItemCard
+                <CardX
                   key={index}
                   img={item.img}
                   name={item.name}
@@ -21,7 +21,7 @@ function Home() {
                 />
               ))}
               {NewAniData.map((item, index) => (
-                <ItemCard
+                <CardX
                   key={index}
                   img={item.img}
                   name={item.name}
@@ -33,7 +33,7 @@ function Home() {
           <Section className="ani-popular" title="Popular Anime">
             <ListItem cName="list-item-update">
               {NewAniData.map((item, index) => (
-                <ItemCard
+                <CardX
                   key={index}
                   img={item.img}
                   name={item.name}
@@ -41,7 +41,7 @@ function Home() {
                 />
               ))}
               {NewAniData.map((item, index) => (
-                <ItemCard
+                <CardX
                   key={index}
                   img={item.img}
                   name={item.name}
@@ -53,7 +53,7 @@ function Home() {
           <Section className="ani-recommend" title="Recommend Anime">
             <ListItem cName="list-item-update">
               {NewAniData.map((item, index) => (
-                <ItemCard
+                <CardX
                   key={index}
                   img={item.img}
                   name={item.name}
@@ -61,7 +61,7 @@ function Home() {
                 />
               ))}
               {NewAniData.map((item, index) => (
-                <ItemCard
+                <CardX
                   key={index}
                   img={item.img}
                   name={item.name}

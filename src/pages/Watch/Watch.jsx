@@ -2,7 +2,7 @@ import React from "react";
 import ListEpisode from "./ListEpisode";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FavAniData } from "../../AniData/AniData";
-import ItemCard from "../../components/Card/ItemCard";
+import CardX from "../../components/Card/CardX";
 import ListItem from "../../components/ListItem/ListItem";
 import Player from "./Player";
 import "./watch.scss";
@@ -28,7 +28,7 @@ const Watch = () => {
               >
                 {FavAniData.map((item, index) => (
                   <SwiperSlide>
-                    <ItemCard
+                    <CardX
                       key={index}
                       img={item.img}
                       name={item.name}

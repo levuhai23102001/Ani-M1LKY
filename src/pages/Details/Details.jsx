@@ -1,7 +1,7 @@
 import React from "react";
 import CharacterList from "./CharacterList";
 import TrailerList from "./TrailerList";
-import ItemCard from "../../components/Card/ItemCard";
+import CardX from "../../components/Card/CardX";
 import ListItem from "../../components/ListItem/ListItem";
 import { FavAniData } from "../../AniData/AniData";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -69,7 +69,7 @@ const Details = () => {
             >
               {FavAniData.map((item, index) => (
                 <SwiperSlide>
-                  <ItemCard
+                  <CardX
                     key={index}
                     img={item.img}
                     name={item.name}

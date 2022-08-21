@@ -184,7 +184,7 @@ const Player = () => {
                   </span>
                   <span> / </span>
                   <span className="duration">
-                    {duration && `00:00` && calculateTime(duration)}
+                    {duration && !isNaN(duration) && calculateTime(duration)}
                   </span>
                 </div>
               </div>
