@@ -14,4 +14,4 @@
 ![image](https://user-images.githubusercontent.com/58142935/161911163-390cd9ee-0692-4b18-884a-cf994e3cd9b2.png)
 
 - WATCH PAGE
-![image](https://user-images.githubusercontent.com/58142935/162699209-c3937e81-cc65-43be-89b8-1e8b24c2e8db.png)
+![image](https://user-images.githubusercontent.com/58142935/184072562-7f207871-3886-4ac9-9dd8-154212c1c155.png)
