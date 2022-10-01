@@ -13,7 +13,13 @@ const ItemCard = (props) => {
   }, []);
   // const { loading = true } = props;
   return (
-    <div className="ani-card">
+    <div
+      className="ani-card"
+      // data-aos={props.aos}
+      // data-aos-offset={props.aos_offset}
+      // data-aos-once={props.aos_once}
+      // data-aos-duration="1000"
+    >
       <div className="card-rank">
         <span>{props.rank}</span>
       </div>

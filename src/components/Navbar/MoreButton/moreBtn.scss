@@ -1,0 +1,73 @@
+@use "../../../scss/" as *;
+
+.more-btn {
+  display: inline-block;
+  height: 40px;
+  line-height: 55px;
+  color: whitesmoke;
+}
+
+.more-popover-list {
+  position: absolute;
+  top: 60px;
+  right: 247px;
+  min-width: 220px;
+  background-color: $body-bg;
+  z-index: 500;
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 200ms linear;
+  &.active {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -6px;
+    right: 15px;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-bottom: 6px solid $body-bg;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
+  }
+}
+
+.more-popover-item {
+  min-width: 200px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.popover-title {
+  height: 40px;
+  line-height: 40px;
+  min-width: 220px;
+  border-radius: 10px;
+  background-color: red;
+  cursor: pointer;
+}
+
+.popover-label {
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  white-space: nowrap;
+  padding: 0 6px;
+  &__txt {
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: $main-fontFamily;
+    pointer-events: auto;
+  }
+}

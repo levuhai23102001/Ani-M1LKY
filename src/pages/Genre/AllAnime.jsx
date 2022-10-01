@@ -17,6 +17,46 @@ const AllAnime = () => {
         />
         <CardX img={KaisenImg} name="Jujutsu Kaisen" episode="EP12" />
         <CardX img={TonikawaImg} name="Tonikaku Kawaii " episode="EP12" />
+        <CardX img={Aot4Img} name="Attack On Titan Season 4" episode="EP8" />
+        <CardX
+          img={GotoubunImg}
+          name="Gotoubun No Hanayome Movie"
+          episode="OVA"
+        />
+        <CardX img={KaisenImg} name="Jujutsu Kaisen" episode="EP12" />
+        <CardX img={TonikawaImg} name="Tonikaku Kawaii " episode="EP12" />
+        <CardX img={Aot4Img} name="Attack On Titan Season 4" episode="EP8" />
+        <CardX
+          img={GotoubunImg}
+          name="Gotoubun No Hanayome Movie"
+          episode="OVA"
+        />
+        <CardX img={KaisenImg} name="Jujutsu Kaisen" episode="EP12" />
+        <CardX img={TonikawaImg} name="Tonikaku Kawaii " episode="EP12" />
+        <CardX img={Aot4Img} name="Attack On Titan Season 4" episode="EP8" />
+        <CardX
+          img={GotoubunImg}
+          name="Gotoubun No Hanayome Movie"
+          episode="OVA"
+        />
+        <CardX img={KaisenImg} name="Jujutsu Kaisen" episode="EP12" />
+        <CardX img={TonikawaImg} name="Tonikaku Kawaii " episode="EP12" />
+        <CardX img={Aot4Img} name="Attack On Titan Season 4" episode="EP8" />
+        <CardX
+          img={GotoubunImg}
+          name="Gotoubun No Hanayome Movie"
+          episode="OVA"
+        />
+        <CardX img={KaisenImg} name="Jujutsu Kaisen" episode="EP12" />
+        <CardX img={TonikawaImg} name="Tonikaku Kawaii " episode="EP12" />
+        <CardX img={Aot4Img} name="Attack On Titan Season 4" episode="EP8" />
+        <CardX
+          img={GotoubunImg}
+          name="Gotoubun No Hanayome Movie"
+          episode="OVA"
+        />
+        <CardX img={KaisenImg} name="Jujutsu Kaisen" episode="EP12" />
+        <CardX img={TonikawaImg} name="Tonikaku Kawaii " episode="EP12" />
       </ListItem>
     </>
   );
