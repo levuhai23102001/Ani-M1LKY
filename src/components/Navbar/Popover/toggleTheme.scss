@@ -1,0 +1,37 @@
+@use "../../../scss/" as *;
+
+.toggle-theme {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  -webkit-appearance: none;
+  background-color: $main-color;
+  outline: none;
+  border-radius: 20px;
+  transition: ease-out 0.5s;
+  cursor: pointer;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top: 2px;
+    right: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    transition: ease-out 0.5s;
+  }
+}
+
+input:checked[type="checkbox"] {
+  background-color: hsla(0, 0%, 100%, 0.8);
+  &::before {
+    right: 22px;
+  }
+}

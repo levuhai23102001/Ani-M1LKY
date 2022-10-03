@@ -15,7 +15,7 @@
   background-color: $body-bg;
   z-index: 500;
   display: block;
-  padding: 10px;
+  padding: 10px 5px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   pointer-events: none;
@@ -43,18 +43,20 @@
 
 .more-popover-item {
   min-width: 200px;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 10px;
+  // background-color: $main-color;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .popover-title {
   height: 40px;
   line-height: 40px;
   min-width: 220px;
-  border-radius: 10px;
-  background-color: red;
-  cursor: pointer;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .popover-label {
@@ -62,12 +64,17 @@
   align-items: center;
   border-radius: 12px;
   white-space: nowrap;
-  padding: 0 6px;
   &__txt {
-    margin-left: 5px;
+    margin-left: 10px;
     font-size: 16px;
     font-weight: 400;
     font-family: $main-fontFamily;
+  }
+  &__lang {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: $main-fontFamily;
     pointer-events: auto;
+    color: hsla(0, 0%, 100%, 0.8);
   }
 }

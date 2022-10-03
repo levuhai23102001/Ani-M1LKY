@@ -4,7 +4,7 @@ import Search from "../Features/Search/Search";
 import Button from "../Features/Button/Button";
 import Dropdown from "./Dropdown/Dropdown";
 import { NavbarData } from "./NavbarData,";
-import MoreBtn from "../Navbar/MoreButton/MoreBtn";
+import Popover from "../Navbar/Popover/Popover";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Brightness2OutlinedIcon from "@mui/icons-material/Brightness2Outlined";
 import RestoreIcon from "@mui/icons-material/Restore";
@@ -72,7 +72,7 @@ function Navbar() {
                 <li className="menu-item">
                   <RestoreIcon fontSize="medium" />
                 </li>
-                <MoreBtn />
+                <Popover />
               </ul>
             </div>
             <div className="ani-nav-user-info">
