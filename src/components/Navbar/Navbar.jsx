@@ -6,14 +6,12 @@ import Dropdown from "./Dropdown/Dropdown";
 import { NavbarData } from "./NavbarData,";
 import Popover from "../Navbar/Popover/Popover";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import Brightness2OutlinedIcon from "@mui/icons-material/Brightness2Outlined";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import RestoreIcon from "@mui/icons-material/Restore";
 
 import "../Navbar/navbar.scss";
 
 function Navbar() {
-  //Show More Button menu dropdown
-
   //Dropdown Menu
   const [dropdown, setDropdown] = useState(false);
   return (
@@ -62,7 +60,7 @@ function Navbar() {
                   </div>
                 </li>
                 <li className="menu-item">
-                  <Brightness2OutlinedIcon fontSize="medium" />
+                  <NotificationsNoneIcon fontSize="medium" />
                 </li>
                 <li className="menu-item">
                   <Link to="/favorites" className="menu-item-link">

@@ -7,7 +7,7 @@ import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import ToggleTheme from "./ToggleTheme";
 import "./popover.scss";
 
-const MoreBtn = () => {
+const Popover = () => {
   //Open Popover dropdown
   const [isOpen, setIsOpen] = useState(false);
   //Popover dropdown ref
@@ -33,47 +33,12 @@ const MoreBtn = () => {
         <div onClick={() => setIsOpen(!isOpen)} className="more-btn">
           <MoreHorizIcon />
         </div>
-        <div className="more-popover-container">
+        <div className="popover-container">
           <ul
-            className={
-              isOpen ? "more-popover-list active" : "more-popover-list"
-            }
+            className={isOpen ? "popover-list active" : "popover-list"}
             ref={popoverRef}
           >
-            <li className="more-popover-item ani-language">
-              <div className="popover-title">
-                <span className="popover-label">
-                  <FontDownloadRoundedIcon />
-                  <span className="popover-label__txt">Languages</span>
-                </span>
-                <span className="popover-label__lang">Vietnamese</span>
-              </div>
-            </li>
-            <li className="more-popover-item ani-theme">
-              <div className="popover-title">
-                <span className="popover-label">
-                  <NightlightRoundedIcon />
-                  <span className="popover-label__txt">Dark theme</span>
-                </span>
-                <ToggleTheme />
-              </div>
-            </li>
-            <li className="more-popover-item add-desktop">
-              <div className="popover-title">
-                <span className="popover-label">
-                  <DesktopMacRoundedIcon />
-                  <span className="popover-label__txt">Add to desktop</span>
-                </span>
-              </div>
-            </li>
-            <li className="more-popover-item ">
-              <div className="popover-title">
-                <span className="popover-label">
-                  <SettingsRoundedIcon />
-                  <span className="popover-label__txt">Settings</span>
-                </span>
-              </div>
-            </li>
+            <PopoverListItem />
           </ul>
         </div>
       </li>
@@ -81,4 +46,45 @@ const MoreBtn = () => {
   );
 };
 
-export default MoreBtn;
+const PopoverListItem = () => {
+  return (
+    <>
+      <li className="popover-item ani-language">
+        <div className="popover-title">
+          <span className="popover-label">
+            <FontDownloadRoundedIcon />
+            <span className="popover-label__txt">Languages</span>
+          </span>
+          <span className="popover-label__lang">Vietnamese</span>
+        </div>
+      </li>
+      <li className="popover-item ani-theme">
+        <div className="popover-title">
+          <span className="popover-label">
+            <NightlightRoundedIcon />
+            <span className="popover-label__txt">Dark theme</span>
+          </span>
+          <ToggleTheme />
+        </div>
+      </li>
+      <li className="popover-item add-desktop">
+        <div className="popover-title">
+          <span className="popover-label">
+            <DesktopMacRoundedIcon />
+            <span className="popover-label__txt">Add to desktop</span>
+          </span>
+        </div>
+      </li>
+      <li className="popover-item settings">
+        <div className="popover-title">
+          <span className="popover-label">
+            <SettingsRoundedIcon />
+            <span className="popover-label__txt">Settings</span>
+          </span>
+        </div>
+      </li>
+    </>
+  );
+};
+
+export default Popover;
