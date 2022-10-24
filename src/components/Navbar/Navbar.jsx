@@ -5,8 +5,8 @@ import Button from "../Features/Button/Button";
 import Dropdown from "./Dropdown/Dropdown";
 import { NavbarData } from "./NavbarData,";
 import Popover from "../Navbar/Popover/Popover";
+import PopoverN from "../Navbar/Popover/PopoverN";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import RestoreIcon from "@mui/icons-material/Restore";
 
 import "../Navbar/navbar.scss";
@@ -59,8 +59,8 @@ function Navbar() {
                     Top Up
                   </div>
                 </li>
-                <li className="menu-item">
-                  <NotificationsNoneIcon fontSize="medium" />
+                <li className="menu-item notify-popover">
+                  <PopoverN />
                 </li>
                 <li className="menu-item">
                   <Link to="/favorites" className="menu-item-link">
@@ -70,7 +70,9 @@ function Navbar() {
                 <li className="menu-item">
                   <RestoreIcon fontSize="medium" />
                 </li>
-                <Popover />
+                <li className="menu-item more-popover">
+                  <Popover />
+                </li>
               </ul>
             </div>
             <div className="ani-nav-user-info">

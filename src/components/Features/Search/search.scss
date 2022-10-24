@@ -1,31 +1,92 @@
 .navbar-searchBox {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  padding: 0 15px 0 15px;
+  padding: 0 15px 0 0;
   border-radius: 15px;
   outline: none;
-  border: 2px solid transparent;
-  width: 225px;
+  width: 225px; //225
   height: 32px;
   line-height: 32px;
   background-color: #2d2a3e;
   transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  &.wide {
+  overflow: hidden;
+  &:focus-within {
     width: 350px;
     border: 2px solid #fff;
     transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
-  svg {
-    color: #a3a3a3;
-    padding-right: 5px;
+  &:not(:focus-within) .clear-btn {
+    display: none;
   }
+  .search-btn {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 5px 0 15px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #a3a3a3;
+    background: transparent;
+    &:hover {
+      cursor: pointer;
+      background-color: #262339;
+    }
+    &:active {
+      background-color: #2d2a3e;
+    }
+    .search-icon {
+      fill: currentColor;
+      padding-right: 5px;
+    }
+  }
+
   input {
+    padding: 0 10px 0 5px;
     background-color: transparent;
     outline: none;
     border: none;
     color: whitesmoke;
     width: 270px;
+    height: 32px;
+  }
+
+  input:not(:placeholder-shown) ~ .search-btn {
+    color: whitesmoke;
+  }
+}
+
+.clear-btn {
+  height: 12px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  svg {
+    padding: 5px;
+  }
+}
+.clear-btn,
+.loading {
+  position: absolute;
+  right: 15px;
+  color: #fff;
+}
+.loading {
+  animation: spinner 1.25s linear infinite;
+  padding: 5px;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }

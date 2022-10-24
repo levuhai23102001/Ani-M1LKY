@@ -1,40 +1,54 @@
 import React, { useRef, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-
+import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
+import RestartAltRoundedIcon from "@mui/icons-material/RestartAltRounded";
 import "../Search/search.scss";
 
 function Search() {
-  const navSearchBox = useRef();
-  const [wide, setWide] = useState(false);
-  const [search, setSearch] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [showResult, setShowResult] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleFocusSearchBox = () => {
-    setWide(true);
-  };
-  const handleBlurSearchBox = () => {
-    setWide(false);
+  const inputRef = useRef();
+
+  const handleSearch = () => {
+    console.log("clicked");
   };
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-    console.log(search);
+  const handleClear = () => {
+    setSearchValue("");
+    inputRef.current.focus();
+  };
+
+  const onChangeSearch = (e) => {
+    const searchValue = e.target.value;
+    if (!searchValue.startsWith(" ")) {
+      setSearchValue(searchValue);
+    }
   };
 
   return (
-    <div
-      className={wide ? "navbar-searchBox wide" : "navbar-searchBox"}
-      onFocus={handleFocusSearchBox}
-      onBlur={handleBlurSearchBox}
-      ref={navSearchBox}
-    >
-      <SearchIcon fontSize="medium" />
+    <div className="navbar-searchBox">
+      <button class="search-btn" type="submit" onClick={handleSearch}>
+        <SearchIcon fontSize="medium" className="search-icon" />
+      </button>
+
       <input
-        value={search}
+        ref={inputRef}
+        value={searchValue}
         className="search-input"
         type="text"
-        placeholder="Search"
-        onChange={handleSearch}
+        placeholder="Search animes and videos"
+        onChange={onChangeSearch}
       />
+      {!!searchValue && (
+        <button className="clear-btn" onClick={handleClear}>
+          <ClearRoundedIcon />
+        </button>
+      )}
+
+      {/* <RestartAltRoundedIcon className="loading" /> */}
     </div>
   );
 }

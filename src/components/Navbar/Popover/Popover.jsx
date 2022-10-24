@@ -29,19 +29,17 @@ const Popover = () => {
 
   return (
     <>
-      <li className="menu-item more-popover">
-        <div onClick={() => setIsOpen(!isOpen)} className="more-btn">
-          <MoreHorizIcon />
-        </div>
-        <div className="popover-container">
-          <ul
-            className={isOpen ? "popover-list active" : "popover-list"}
-            ref={popoverRef}
-          >
-            <PopoverListItem />
-          </ul>
-        </div>
-      </li>
+      <div onClick={() => setIsOpen(!isOpen)} className="more-btn">
+        <MoreHorizIcon />
+      </div>
+      <div className="popover-container">
+        <ul
+          className={isOpen ? "popover-list active" : "popover-list"}
+          ref={popoverRef}
+        >
+          <PopoverListItem />
+        </ul>
+      </div>
     </>
   );
 };
