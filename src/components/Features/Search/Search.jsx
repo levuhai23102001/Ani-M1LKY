@@ -30,7 +30,7 @@ function Search() {
 
   return (
     <div className="navbar-searchBox">
-      <button class="search-btn" type="submit" onClick={handleSearch}>
+      <button className="search-btn" type="submit" onClick={handleSearch}>
         <SearchIcon fontSize="medium" className="search-icon" />
       </button>
 

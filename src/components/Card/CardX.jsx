@@ -5,21 +5,14 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Skeleton from "@mui/material/Skeleton";
 import "./CardX.scss";
 
-const ItemCard = (props) => {
+const CardX = (props) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
   }, []);
-  // const { loading = true } = props;
   return (
-    <div
-      className="ani-card"
-      // data-aos={props.aos}
-      // data-aos-offset={props.aos_offset}
-      // data-aos-once={props.aos_once}
-      // data-aos-duration="1000"
-    >
+    <div className="ani-card">
       <div className="card-rank">
         <span>{props.rank}</span>
       </div>
@@ -62,4 +55,4 @@ const ItemCard = (props) => {
   );
 };
 
-export default ItemCard;
+export default CardX;

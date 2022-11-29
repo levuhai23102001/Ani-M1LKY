@@ -32,19 +32,16 @@ const Popover = () => {
       <div onClick={() => setIsOpen(!isOpen)} className="more-btn">
         <MoreHorizIcon />
       </div>
-      <div className="popover-container">
-        <ul
-          className={isOpen ? "popover-list active" : "popover-list"}
-          ref={popoverRef}
-        >
-          <PopoverListItem />
+      <div className={isOpen ? "popover active" : "popover"} ref={popoverRef}>
+        <ul className="popover-list">
+          <PopoverItem />
         </ul>
       </div>
     </>
   );
 };
 
-const PopoverListItem = () => {
+const PopoverItem = () => {
   return (
     <>
       <li className="popover-item ani-language">

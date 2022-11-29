@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import tmdbAPI, { movieType } from "../../api/tmdbAPI";
+import apiConfig from "../../api/apiConfig";
 
 import {
   Pagination,
@@ -34,6 +36,33 @@ const BannerList = [
 ];
 
 const Slider = () => {
+  const [animeItems, setAnimeItems] = useState([]);
+
+  useEffect(() => {
+    const getAnimeItems = async () => {
+      const params = { page: 3 };
+      const response = await tmdbAPI.getMoviesList(movieType.popular, {
+        params,
+      });
+      setAnimeItems(response.data.results);
+      console.log(response.data.results.slice(0, 5));
+    };
+    getAnimeItems();
+    // const getAnimeItems = async () => {
+    //   try {
+    //     const params = { page: 1 };
+    //     const response = await tmdbAPI.getMoviesList(movieType.popular, {
+    //       ...params,
+    //     });
+    //     setAnimeItems(response.results.slice(1, 4));
+    //     console.log(response);
+    //   } catch (error) {
+    //     console.log("Failed:", error);
+    //   }
+    // };
+    // getAnimeItems();
+  }, []);
+
   return (
     <div className="slider ani-slider">
       <Swiper

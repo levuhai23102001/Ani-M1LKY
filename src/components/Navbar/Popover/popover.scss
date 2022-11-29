@@ -7,7 +7,7 @@
   color: whitesmoke;
 }
 
-.popover-list {
+.popover {
   position: absolute;
   top: 60px;
   right: 247px;
@@ -15,13 +15,15 @@
   background-color: $body-bg;
   z-index: 500;
   display: block;
-  padding: 10px 5px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   pointer-events: none;
   opacity: 0;
   transform: translateY(20px);
   transition: all 200ms linear;
+  &-list {
+    padding: 10px 5px;
+  }
   &.active {
     pointer-events: auto;
     opacity: 1;
