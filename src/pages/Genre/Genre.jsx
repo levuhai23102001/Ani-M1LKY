@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Section from "../../components/Sections/Section";
-import ButtonLink from "../../components/Features/Button/ButtonLink";
+import { ButtonLink } from "../../components/Features/Button/Button";
 import { ListGenreData as GenreData } from "../../components/Navbar/NavbarData,";
 import { Outlet } from "react-router-dom";
 import ListItem from "../../components/ListItem/ListItem";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Search from "../Features/Search/Search";
-import Button from "../Features/Button/Button";
+import Button, { OutlineButton } from "../Features/Button/Button";
 import Dropdown from "./Dropdown/Dropdown";
 import { NavbarData } from "./NavbarData,";
 import Popover from "../Navbar/Popover/Popover";
@@ -76,8 +76,8 @@ function Navbar() {
               </ul>
             </div>
             <div className="ani-nav-user-info">
-              <Button name="Sign Up" cName="ani-btn-regist" />
-              <Button name="Sign In" cName="ani-btn-login" />
+              <OutlineButton name="Sign Up" cName="ani-btn-registration" />
+              <OutlineButton name="Sign In" cName="ani-btn-login" />
             </div>
           </div>
         </div>

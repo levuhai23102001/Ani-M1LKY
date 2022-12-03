@@ -4,7 +4,7 @@ import apiConfig from "../../api/apiConfig";
 // import { useHistory } from "react-router";
 import PlayCircle from "@mui/icons-material/PlayCircleOutlineRounded";
 import Button from "../../components/Features/Button/Button";
-import { Pagination, Navigation, Mousewheel, Keyboard, Autoplay } from "swiper";
+import { Pagination, Navigation, Keyboard, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "../Sliders/slider.scss";
@@ -17,7 +17,7 @@ const Slider = () => {
 
   useEffect(() => {
     const getAnimeItems = async () => {
-      const params = { page: 8 };
+      const params = { page: 9 };
       try {
         const response = await tmdbAPI.getMoviesList(movieType.popular, {
           params,
@@ -33,16 +33,15 @@ const Slider = () => {
   return (
     <div className="slider ani-slider">
       <Swiper
-        modules={[Autoplay, Pagination, Navigation, Mousewheel, Keyboard]}
+        modules={[Pagination, Navigation, Keyboard]}
         grabCursor={true}
         spaceBetween={0}
         keyboard={true}
-        mousewheel={true}
         slidesPerView={1}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 5000,
+        //   disableOnInteraction: false,
+        // }}
         pagination={{
           clickable: true,
         }}
@@ -64,7 +63,7 @@ const Slider = () => {
 
 const SlideItem = (props) => {
   const item = props.item;
-  const background = apiConfig.originalImage(
+  const background = apiConfig.backgroundImage(
     item.backdrop_path ? item.backdrop_path : item.poster_path
   );
   return (
@@ -76,7 +75,7 @@ const SlideItem = (props) => {
         <div className="slide-item__content container">
           <div className="slide-item__content__poster">
             <img
-              src={apiConfig.bgImage(item.poster_path)}
+              src={apiConfig.posterImage(item.poster_path)}
               alt=""
               className="slide-item__img"
             />
@@ -85,10 +84,10 @@ const SlideItem = (props) => {
             <h2 className="title">{item.title}</h2>
             <div className="overview">{item.overview}</div>
             <div className="buttons">
-              <Button name="Watch Now" cName="watch-now-btn" />
+              <Button name="WATCH NOW" cName="watch-now-btn" />
               <div className="watch-trailer-btn">
                 <PlayCircle fontSize="large" />
-                <span>Watch Trailer</span>
+                <span>WATCH TRAILER</span>
               </div>
             </div>
           </div>
