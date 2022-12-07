@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import tmdbAPI, { movieType } from "../../api/tmdbAPI";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import tmdbAPI, { category, movieType } from "../../api/tmdbAPI";
 import apiConfig from "../../api/apiConfig";
-// import { useHistory } from "react-router";
 import PlayCircle from "@mui/icons-material/PlayCircleOutlineRounded";
 import Button from "../../components/Features/Button/Button";
+import Modal, { ModalContent } from "../Modal/Modal";
 import { Pagination, Navigation, Keyboard, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -17,12 +18,12 @@ const Slider = () => {
 
   useEffect(() => {
     const getAnimeItems = async () => {
-      const params = { page: 9 };
+      const params = { page: 10 };
       try {
         const response = await tmdbAPI.getMoviesList(movieType.popular, {
           params,
         });
-        setAnimeItems(response.data.results.slice(0, 6));
+        setAnimeItems(response.data.results.slice(0, 7));
         console.log(response.data);
       } catch (err) {
         console.log(err);
@@ -33,15 +34,16 @@ const Slider = () => {
   return (
     <div className="slider ani-slider">
       <Swiper
-        modules={[Pagination, Navigation, Keyboard]}
+        modules={[Autoplay, Pagination, Navigation, Keyboard]}
         grabCursor={true}
         spaceBetween={0}
         keyboard={true}
         slidesPerView={1}
-        // autoplay={{
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        // }}
+        loop={true}
+        autoplay={{
+          delay: 6000,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
@@ -57,15 +59,40 @@ const Slider = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      {/* {animeItems.map((item, index) => (
+        <TrailerModal key={index} item={item} />
+      ))} */}
     </div>
   );
 };
 
 const SlideItem = (props) => {
+  const navigate = useNavigate();
+
   const item = props.item;
+
   const background = apiConfig.backgroundImage(
     item.backdrop_path ? item.backdrop_path : item.poster_path
   );
+
+  // const setModalActive = async () => {
+  //   const modal = document.querySelector(`#modal_${item.id}`);
+
+  //   const videos = await tmdbAPI.getVideos(category.movie, item.id);
+
+  //   if (videos.data.results.length > 0) {
+  //     const videoSrc =
+  //       "https://www.youtube.com/embed/" + videos.data.results[0].key;
+  //     modal
+  //       .querySelector(".ani-modal__content > iframe")
+  //       .setAttribute("src", videoSrc);
+  //   } else {
+  //     modal.querySelector(".ani-modal__content").innerHTML = "No trailer";
+  //   }
+
+  //   modal.classList.toggle("active");
+  // };
+
   return (
     <>
       <div
@@ -84,7 +111,11 @@ const SlideItem = (props) => {
             <h2 className="title">{item.title}</h2>
             <div className="overview">{item.overview}</div>
             <div className="buttons">
-              <Button name="WATCH NOW" cName="watch-now-btn" />
+              <Button
+                name="WATCH NOW"
+                cName="watch-now-btn"
+                onClick={() => navigate("/movie/" + item.id)}
+              />
               <div className="watch-trailer-btn">
                 <PlayCircle fontSize="large" />
                 <span>WATCH TRAILER</span>
@@ -96,6 +127,27 @@ const SlideItem = (props) => {
     </>
   );
 };
+
+// const TrailerModal = (props) => {
+//   const item = props.item;
+
+//   const iframeRef = useRef(null);
+
+//   const onClose = () => iframeRef.current.setAttribute("src", "");
+
+//   return (
+//     <Modal active={false} id={`modal_${item.id}`}>
+//       <ModalContent onClose={onClose}>
+//         <iframe
+//           ref={iframeRef}
+//           width="100%"
+//           height="500px"
+//           title="trailer"
+//         ></iframe>
+//       </ModalContent>
+//     </Modal>
+//   );
+// };
 
 export default Slider;
 

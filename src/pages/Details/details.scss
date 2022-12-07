@@ -56,6 +56,12 @@
       font-size: 3rem;
       line-height: 1;
       font-family: $main-fontFamily;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-word;
     }
     .genres {
       & > * ~ * {
@@ -104,6 +110,12 @@
             font-family: $main-fontFamily;
             margin-top: 5px;
             padding-left: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
           }
         }
       }

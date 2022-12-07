@@ -13,6 +13,28 @@
   text-align: center;
   touch-action: manipulation;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 50%;
+  //   bottom: 0;
+  //   right: 50%;
+  //   z-index: 2;
+  //   width: 0;
+  //   height: 100%;
+  //   transition: all 0.2s ease-in-out;
+  // }
+  // &:hover {
+  //   &:before {
+  //     left: 0;
+  //     width: 100%;
+  //     right: 0;
+  //     background-color: rgba(255, 255, 255, 0.3);
+  //     cursor: pointer;
+  //   }
+  // }
   span {
     display: inline-block;
     color: #fff;

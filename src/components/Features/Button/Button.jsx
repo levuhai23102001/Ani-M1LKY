@@ -1,12 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import "../Button/button.scss";
 
 const Button = (props) => {
   return (
     <>
-      <button className={`ani-button ${props.cName}`}>
+      <button
+        className={`ani-button ${props.cName}`}
+        onClick={props.onClick ? () => props.onClick() : null}
+      >
         <span>{props.name}</span>
       </button>
     </>
@@ -35,6 +39,10 @@ export const ButtonLink = (props) => {
       </NavLink>
     </>
   );
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func,
 };
 
 export default Button;

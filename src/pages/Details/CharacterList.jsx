@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import { Mousewheel } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import GojoImg from "../../assets/images/characters/gojo.jpg";
+import { useParams } from "react-router-dom";
+
+import tmdbAPI from "../../api/tmdbAPI";
+import apiConfig from "../../api/apiConfig";
+
 import "swiper/css";
-const CharacterList = () => {
+
+const CharacterList = (props) => {
+  const { category } = useParams();
+
+  const [casts, setCasts] = useState([]);
+
+  useEffect(() => {
+    const getCredits = async () => {
+      const res = await tmdbAPI.credits(category, props.id);
+      setCasts(res.data.cast.slice(0, 10));
+    };
+    getCredits();
+  }, [category, props.id]);
+
   return (
     <div className="characters">
       <Swiper
@@ -13,54 +31,18 @@ const CharacterList = () => {
         modules={[Mousewheel]}
         className="mySwiper__character"
       >
-        <SwiperSlide>
-          <div className="characters__item">
-            <img className="characters__item__img" src={GojoImg} alt="" />
-            <p className="characters__item__name">Gojo Satoru</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="characters__item">
-            <img className="characters__item__img" src={GojoImg} alt="" />
-            <p className="characters__item__name">Gojo Satoru</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="characters__item">
-            <img className="characters__item__img" src={GojoImg} alt="" />
-            <p className="characters__item__name">Gojo Satoru</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="characters__item">
-            <img className="characters__item__img" src={GojoImg} alt="" />
-            <p className="characters__item__name">Gojo Satoru</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="characters__item">
-            <img className="characters__item__img" src={GojoImg} alt="" />
-            <p className="characters__item__name">Gojo Satoru</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="characters__item">
-            <img className="characters__item__img" src={GojoImg} alt="" />
-            <p className="characters__item__name">Gojo Satoru</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="characters__item">
-            <img className="characters__item__img" src={GojoImg} alt="" />
-            <p className="characters__item__name">Gojo Satoru</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="characters__item">
-            <img className="characters__item__img" src={GojoImg} alt="" />
-            <p className="characters__item__name">Gojo Satoru</p>
-          </div>
-        </SwiperSlide>
+        {casts.map((item, index) => (
+          <SwiperSlide key={index}>
+            <div className="characters__item">
+              <img
+                className="characters__item__img"
+                src={apiConfig.posterImage(item.profile_path)}
+                alt=""
+              />
+              <p className="characters__item__name">{item.name}</p>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

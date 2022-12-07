@@ -21,7 +21,7 @@ const MyRoutes = () => {
       </Route>
       <Route path="/favorites" element={<Favorite />} />
       <Route path="/rank" element={<Rank />} />
-      <Route path="/:id" element={<Details />} />
+      <Route path="/:category/:id" element={<Details />} />
       <Route path="/watch" element={<Watch />} />
     </Routes>
   );
