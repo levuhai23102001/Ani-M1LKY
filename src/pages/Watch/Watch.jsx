@@ -3,10 +3,11 @@ import ListEpisode from "./ListEpisode";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FavAniData } from "../../AniData/AniData";
 import CardX from "../../components/Card/CardX";
-import ListItem from "../../components/ListItem/ListItem";
+import AniList from "../../components/AniList/AniList";
 import Player from "./Player";
 import "./watch.scss";
 import "swiper/css";
+
 const Watch = () => {
   return (
     <>
@@ -20,7 +21,7 @@ const Watch = () => {
             <div className="ani-watch__similar__title">
               <h2>Similar</h2>
             </div>
-            <ListItem>
+            <AniList>
               <Swiper
                 slidesPerView={6}
                 freeMode={true}
@@ -37,7 +38,7 @@ const Watch = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </ListItem>
+            </AniList>
           </div>
         </div>
       </div>

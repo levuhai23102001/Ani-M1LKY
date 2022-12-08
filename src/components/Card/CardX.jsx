@@ -3,9 +3,17 @@ import ButtonPlay from "../Features/Button/ButtonPlay";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Skeleton from "@mui/material/Skeleton";
+
+import tmdbAPI from "../../api/tmdbAPI";
+import apiConfig from "../../api/apiConfig";
+
 import "./CardX.scss";
 
 const CardX = (props) => {
+  const item = props.item;
+
+  const poster = apiConfig.posterImage(item.poster_path || item.backdrop_path);
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -19,13 +27,13 @@ const CardX = (props) => {
 
       {loading ? (
         <div className="card-ep">
-          <span>{props.episode}</span>
+          <span>{item.vote_average}</span>
         </div>
       ) : null}
 
       {loading ? (
         <div className="card-top">
-          <img className="card-img" src={props.img} alt="" />
+          <img className="card-img" src={poster} alt="" />
           <div className="overlay">
             <ButtonPlay />
           </div>
@@ -35,7 +43,7 @@ const CardX = (props) => {
       )}
       <div className="card-content">
         {loading ? (
-          <h3 className="card-title">{props.name}</h3>
+          <h3 className="card-title">{item.title || item.name}</h3>
         ) : (
           <Skeleton animation="wave" variant="text" height={15} />
         )}

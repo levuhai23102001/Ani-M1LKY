@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import CharacterList from "./CharacterList";
 import TrailerList from "./TrailerList";
 import CardX from "../../components/Card/CardX";
-import ListItem from "../../components/ListItem/ListItem";
+import AniList from "../../components/AniList/AniList";
 
 import tmdbAPI from "../../api/tmdbAPI";
 import apiConfig from "../../api/apiConfig";
@@ -75,7 +75,7 @@ const Details = () => {
             <div className="trailer__title">
               <h2>Similar</h2>
             </div>
-            <ListItem>
+            <AniList>
               <Swiper
                 slidesPerView={5}
                 freeMode={true}
@@ -91,7 +91,7 @@ const Details = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </ListItem>
+            </AniList>
           </div>
         </div>
       )}

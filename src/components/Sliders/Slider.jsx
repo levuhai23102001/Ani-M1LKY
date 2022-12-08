@@ -4,7 +4,7 @@ import tmdbAPI, { category, movieType } from "../../api/tmdbAPI";
 import apiConfig from "../../api/apiConfig";
 import PlayCircle from "@mui/icons-material/PlayCircleOutlineRounded";
 import Button from "../../components/Features/Button/Button";
-import Modal, { ModalContent } from "../Modal/Modal";
+// import Modal, { ModalContent } from "../Modal/Modal";
 import { Pagination, Navigation, Keyboard, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 

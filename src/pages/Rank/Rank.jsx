@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CardZ from "../../components/Card/CardZ";
 import CardX from "../../components/Card/CardX";
-import ListItem from "../../components/ListItem/ListItem";
+import AniList from "../../components/AniList/AniList";
 import Section from "../../components/Sections/Section";
 import { FavAniData } from "../../AniData/AniData";
 import ViewListRoundedIcon from "@mui/icons-material/ViewListRounded";
@@ -33,7 +33,7 @@ const Rank = () => {
                 onClick={() => setShowCard(true)}
               />
             </div>
-            <ListItem cName="list-item-fav">
+            <AniList cName="list-item-fav">
               {showCard
                 ? FavAniData.map((item, index) => (
                     <CardZ
@@ -51,7 +51,7 @@ const Rank = () => {
                       episode={item.episode}
                     />
                   ))}
-            </ListItem>
+            </AniList>
           </Section>
         </div>
       </div>

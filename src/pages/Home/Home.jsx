@@ -1,74 +1,24 @@
 import React from "react";
 import Slider from "../../components/Sliders/Slider";
 import Section from "../../components/Sections/Section";
-import CardX from "../../components/Card/CardX";
-import { NewAniData } from "../../AniData/AniData";
-import ListItem from "../../components/ListItem/ListItem";
+import AniList from "../../components/AniList/AniList";
+
+import { category, movieType, tvType } from "../../api/tmdbAPI";
+
 function Home() {
   return (
     <>
       <div className="wrapper">
         <div className="home-wrapper">
           <Slider />
-          <Section className="ani-newest" title="Newest Anime">
-            <ListItem cName="list-item-update">
-              {NewAniData.map((item, index) => (
-                <CardX
-                  key={index}
-                  img={item.img}
-                  name={item.name}
-                  episode={item.episode}
-                />
-              ))}
-              {NewAniData.map((item, index) => (
-                <CardX
-                  key={index}
-                  img={item.img}
-                  name={item.name}
-                  episode={item.episode}
-                />
-              ))}
-            </ListItem>
+          <Section className="ani-newest" title="Popular Anime">
+            <AniList category={category.tv} type={tvType.popular} />
           </Section>
-          <Section className="ani-popular" title="Popular Anime">
-            <ListItem cName="list-item-update">
-              {NewAniData.map((item, index) => (
-                <CardX
-                  key={index}
-                  img={item.img}
-                  name={item.name}
-                  episode={item.episode}
-                />
-              ))}
-              {NewAniData.map((item, index) => (
-                <CardX
-                  key={index}
-                  img={item.img}
-                  name={item.name}
-                  episode={item.episode}
-                />
-              ))}
-            </ListItem>
+          <Section className="ani-top_rated" title="Top rated Anime">
+            <AniList category={category.tv} type={tvType.top_rated} />
           </Section>
-          <Section className="ani-recommend" title="Recommend Anime">
-            <ListItem cName="list-item-update">
-              {NewAniData.map((item, index) => (
-                <CardX
-                  key={index}
-                  img={item.img}
-                  name={item.name}
-                  episode={item.episode}
-                />
-              ))}
-              {NewAniData.map((item, index) => (
-                <CardX
-                  key={index}
-                  img={item.img}
-                  name={item.name}
-                  episode={item.episode}
-                />
-              ))}
-            </ListItem>
+          <Section className="ani-on_the_air" title="Airing Today">
+            <AniList category={category.tv} type={tvType.on_the_air} />
           </Section>
         </div>
       </div>
