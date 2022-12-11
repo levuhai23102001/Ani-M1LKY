@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import "./buttonPlay.scss";
-const ButtonPlay = () => {
+const ButtonPlay = (props) => {
   return (
-    <Link to="/:id" className="btn-play">
-      <PlayArrowIcon className="btn-play-icon" />
+    <Link to={props.link} className="btn-play">
+      <PlayArrowRoundedIcon className="btn-play-icon" fontSize="large" />
     </Link>
   );
 };

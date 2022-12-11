@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+
 import ButtonPlay from "../Features/Button/ButtonPlay";
+
+import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Skeleton from "@mui/material/Skeleton";
 
-import tmdbAPI from "../../api/tmdbAPI";
+import { category } from "../../api/tmdbAPI";
 import apiConfig from "../../api/apiConfig";
 
 import "./CardX.scss";
@@ -13,6 +16,8 @@ const CardX = (props) => {
   const item = props.item;
 
   const poster = apiConfig.posterImage(item.poster_path || item.backdrop_path);
+
+  const url = "/" + category[props.category] + "/" + item.id;
 
   const [loading, setLoading] = useState(false);
 
@@ -35,7 +40,9 @@ const CardX = (props) => {
         <div className="card-top">
           <img className="card-img" src={poster} alt="" />
           <div className="overlay">
-            <ButtonPlay />
+            <FavoriteBorderIcon fontSize="medium" className="btn-fav" />
+            <ButtonPlay link={url} />
+            <ShareRoundedIcon />
           </div>
         </div>
       ) : (
@@ -53,7 +60,7 @@ const CardX = (props) => {
               <VisibilityIcon fontSize="small" />
               <span>15.000 views</span>
             </div>
-            <FavoriteBorderIcon fontSize="medium" className="btn-fav" />
+            {/* <FavoriteBorderIcon fontSize="medium" className="btn-fav" /> */}
           </div>
         ) : (
           <Skeleton animation="wave" variant="text" height={12} width={150} />

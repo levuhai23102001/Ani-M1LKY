@@ -75,23 +75,13 @@ const Details = () => {
             <div className="trailer__title">
               <h2>Similar</h2>
             </div>
-            <AniList>
-              <Swiper
-                slidesPerView={5}
-                freeMode={true}
-                className="mySwiper__similar"
-              >
-                {FavAniData.map((item, index) => (
-                  <SwiperSlide key={index}>
-                    <CardX
-                      img={item.img}
-                      name={item.name}
-                      episode={item.episode}
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </AniList>
+            <Swiper
+              slidesPerView={5}
+              freeMode={true}
+              className="mySwiper__similar"
+            >
+              <AniList category={category} type="similar" id={id} />
+            </Swiper>
           </div>
         </div>
       )}

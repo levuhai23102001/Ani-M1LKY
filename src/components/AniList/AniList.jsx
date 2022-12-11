@@ -29,7 +29,7 @@ const AniList = (props) => {
       setItems(response.data.results.slice(0, 12));
     };
     getList();
-  }, []);
+  });
 
   return (
     <div className={`ani-list-item ${props.cName}`}>
