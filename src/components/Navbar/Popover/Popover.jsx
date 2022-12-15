@@ -23,7 +23,7 @@ const Popover = (props) => {
 
   return (
     <>
-      <div onClick={() => setIsOpen(!isOpen)} className="popover-btn">
+      <div className="popover-btn" onClick={() => setIsOpen(!isOpen)}>
         {props.icon}
       </div>
       <div className={isOpen ? "popover active" : "popover"} ref={popoverRef}>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import Search from "../Features/Search/Search";
-import Catalog from "../Features/Search/Catalog";
 import Button, { OutlineButton } from "../Features/Button/Button";
 import Dropdown from "./Dropdown/Dropdown";
 import { NavbarData } from "./NavbarData,";
@@ -60,9 +59,7 @@ function Navbar() {
               </ul>
             </div>
           </div>
-          <Search>
-            <Catalog />
-          </Search>
+          <Search />
           <div className="navbar-minor-menu">
             <div className="minor-menu-container">
               <ul className="navbar-menu-right">
