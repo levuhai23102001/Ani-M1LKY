@@ -1,6 +1,6 @@
 @use "../../../scss/" as *;
 
-.more-btn {
+.popover-btn {
   display: inline-block;
   height: 40px;
   line-height: 55px;
@@ -9,13 +9,13 @@
 
 .popover {
   position: absolute;
-  top: 60px;
-  right: 247px;
+  top: 48px;
+  right: 0;
   min-width: 220px;
   background-color: $body-bg;
   z-index: 500;
   display: block;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   pointer-events: none;
   opacity: 0;
@@ -35,7 +35,7 @@
     height: 0;
     position: absolute;
     top: -6px;
-    right: 15px;
+    right: 6px;
     border-right: 6px solid transparent;
     border-left: 6px solid transparent;
     border-bottom: 6px solid $body-bg;

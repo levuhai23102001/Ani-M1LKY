@@ -115,13 +115,13 @@
       justify-content: space-between;
       gap: 0 30px;
 
-      .ani-navbar-topup {
+      .ani-navbar__top-up {
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
 
-        .topup-btn {
+        .top-up-btn {
           border: 1.5px solid #fff;
           border-radius: 15px;
           line-height: 22px;
@@ -130,7 +130,7 @@
           font-size: 14px;
           font-family: $main-fontFamily;
 
-          .topup-icon {
+          .top-up-icon {
             background-image: url(../../assets/Icons/diamondIcon.png);
             background-repeat: no-repeat;
             background-size: contain;
@@ -144,9 +144,10 @@
       }
 
       .menu-item {
-        cursor: pointer;
+        position: relative;
         display: flex;
         align-items: center;
+        cursor: pointer;
         .menu-item-link {
           height: 40px;
           line-height: 55px;

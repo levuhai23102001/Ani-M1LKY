@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CharacterList from "./CharacterList";
 import TrailerList from "./TrailerList";
-import CardX from "../../components/Card/CardX";
 import AniList from "../../components/AniList/AniList";
 
 import tmdbAPI from "../../api/tmdbAPI";
 import apiConfig from "../../api/apiConfig";
 
-import { FavAniData } from "../../AniData/AniData";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";

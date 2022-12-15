@@ -4,7 +4,7 @@ import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 import RestartAltRoundedIcon from "@mui/icons-material/RestartAltRounded";
 import "../Search/search.scss";
 
-function Search() {
+function Search(props) {
   const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(false);
@@ -49,6 +49,7 @@ function Search() {
       )}
 
       {/* <RestartAltRoundedIcon className="loading" /> */}
+      {props.children}
     </div>
   );
 }

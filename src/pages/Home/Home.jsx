@@ -4,6 +4,7 @@ import Section from "../../components/Sections/Section";
 import AniList from "../../components/AniList/AniList";
 
 import { category, movieType, tvType } from "../../api/tmdbAPI";
+import { OutlineButton } from "../../components/Features/Button/Button";
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
         <div className="home-wrapper">
           <Slider />
           <Section className="ani-newest" title="Popular Anime">
+            <OutlineButton name="View more" cName="viewMore-btn" />
             <AniList category={category.tv} type={tvType.popular} />
           </Section>
           <Section className="ani-top_rated" title="Top rated Anime">

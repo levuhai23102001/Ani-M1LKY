@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+
 import Search from "../Features/Search/Search";
+import Catalog from "../Features/Search/Catalog";
 import Button, { OutlineButton } from "../Features/Button/Button";
 import Dropdown from "./Dropdown/Dropdown";
 import { NavbarData } from "./NavbarData,";
-import Popover from "../Navbar/Popover/Popover";
-import PopoverN from "../Navbar/Popover/PopoverN";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import RestoreIcon from "@mui/icons-material/Restore";
+import Popover, { PopoverContent } from "../Navbar/Popover/Popover";
+import ToggleTheme from "./Popover/ToggleTheme";
+
+import {
+  MoreHorizIcon,
+  NotifiIcon,
+  FavoriteBorderIcon,
+  FontDownloadRoundedIcon,
+  NightlightRoundedIcon,
+  DesktopMacRoundedIcon,
+  SettingsRoundedIcon,
+  RestoreIcon,
+} from "../../assets/Icons/Icons";
 
 import "../Navbar/navbar.scss";
 
@@ -49,18 +60,22 @@ function Navbar() {
               </ul>
             </div>
           </div>
-          <Search />
+          <Search>
+            <Catalog />
+          </Search>
           <div className="navbar-minor-menu">
             <div className="minor-menu-container">
               <ul className="navbar-menu-right">
-                <li className="ani-navbar-topup">
-                  <div className="topup-btn">
-                    <div className="topup-icon"></div>
+                <li className="ani-navbar__top-up">
+                  <div className="top-up-btn">
+                    <div className="top-up-icon"></div>
                     Top Up
                   </div>
                 </li>
                 <li className="menu-item notify-popover">
-                  <PopoverN />
+                  <Popover icon={<NotifiIcon />}>
+                    <PopoverContent>No Notifications</PopoverContent>
+                  </Popover>
                 </li>
                 <li className="menu-item">
                   <Link to="/favorites" className="menu-item-link">
@@ -71,7 +86,52 @@ function Navbar() {
                   <RestoreIcon fontSize="medium" />
                 </li>
                 <li className="menu-item more-popover">
-                  <Popover />
+                  <Popover icon={<MoreHorizIcon />}>
+                    <PopoverContent>
+                      <li className="popover-item ani-language">
+                        <div className="popover-title">
+                          <span className="popover-label">
+                            <FontDownloadRoundedIcon />
+                            <span className="popover-label__txt">
+                              Languages
+                            </span>
+                          </span>
+                          <span className="popover-label__lang">
+                            Vietnamese
+                          </span>
+                        </div>
+                      </li>
+                      <li className="popover-item ani-theme">
+                        <div className="popover-title">
+                          <span className="popover-label">
+                            <NightlightRoundedIcon />
+                            <span className="popover-label__txt">
+                              Dark theme
+                            </span>
+                          </span>
+                          <ToggleTheme />
+                        </div>
+                      </li>
+                      <li className="popover-item add-desktop">
+                        <div className="popover-title">
+                          <span className="popover-label">
+                            <DesktopMacRoundedIcon />
+                            <span className="popover-label__txt">
+                              Add to desktop
+                            </span>
+                          </span>
+                        </div>
+                      </li>
+                      <li className="popover-item settings">
+                        <div className="popover-title">
+                          <span className="popover-label">
+                            <SettingsRoundedIcon />
+                            <span className="popover-label__txt">Settings</span>
+                          </span>
+                        </div>
+                      </li>
+                    </PopoverContent>
+                  </Popover>
                 </li>
               </ul>
             </div>
