@@ -4,38 +4,37 @@ import SearchIcon from "@mui/icons-material/Search";
 import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 import RestartAltRoundedIcon from "@mui/icons-material/RestartAltRounded";
 import "../Search/search.scss";
+import { category } from "../../../api/tmdbAPI";
 
 function Search(props) {
+  //states
   const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  //ref
   const inputRef = useRef();
   const resultRef = useRef();
 
+  //fetch api search results
   useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([1, 2, 3]);
-    });
-  });
-
-  const handleSearch = () => {
-    console.log("clicked");
-  };
-
-  const handleClear = () => {
-    setSearchValue("");
-    inputRef.current.focus();
-  };
-
-  const onChangeSearch = (e) => {
-    const searchValue = e.target.value;
-    if (!searchValue.startsWith(" ")) {
-      setSearchValue(searchValue);
+    if (!searchValue.trim()) {
+      return;
     }
-  };
 
+    fetch(
+      `https://api.themoviedb.org/3/search/tv?api_key=3c25efec2428a20e51e79d6884070527&page=1&query=${encodeURIComponent(
+        searchValue
+      )}`
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        setSearchResult(response.results);
+      });
+  }, [searchValue]);
+
+  //hide search results
   useEffect(() => {
     function handleHideResults(event) {
       if (
@@ -52,6 +51,23 @@ function Search(props) {
       window.removeEventListener("click", handleHideResults);
     };
   }, [showResult]);
+
+  const handleSearch = () => {
+    console.log("clicked");
+  };
+
+  const handleClear = () => {
+    setSearchValue("");
+    setSearchResult([]);
+    inputRef.current.focus();
+  };
+
+  const onChangeSearch = (e) => {
+    const searchValue = e.target.value;
+    if (!searchValue.startsWith(" ")) {
+      setSearchValue(searchValue);
+    }
+  };
 
   return (
     <div style={{ position: "relative" }}>
@@ -80,11 +96,9 @@ function Search(props) {
       {showResult && searchResult.length > 0 ? (
         <SearchResult ref={resultRef}>
           <h4 className="search-title">Results</h4>
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
+          {searchResult.map((result, index) => (
+            <SearchItem key={index} item={result} category={category.tv} />
+          ))}
         </SearchResult>
       ) : (
         ""
