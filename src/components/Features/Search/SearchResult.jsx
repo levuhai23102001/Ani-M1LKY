@@ -2,7 +2,6 @@ import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { category } from "../../../api/tmdbAPI";
 import apiConfig from "../../../api/apiConfig";
-import aot4 from "../../../assets/images/anime/aot4.jpg";
 
 import "../Search/searchResult.scss";
 
