@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.0",
     "boxicons": "^2.1.2",
+    "eslint-plugin-react-hooks": "^5.0.0-next-fabef7a6b-20221215",
     "framer-motion": "^5.2.0",
     "jquery": "^3.6.0",
     "material-ui-popup-state": "^4.1.0",

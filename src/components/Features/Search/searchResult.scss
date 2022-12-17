@@ -5,7 +5,8 @@
   top: 42px;
   left: 0;
   width: 500px;
-  height: 531px;
+  min-height: 149px;
+  max-height: 531px;
   padding: 10px 15px 0px;
   font-family: $main-fontFamily;
   transform: translateX(-80px);

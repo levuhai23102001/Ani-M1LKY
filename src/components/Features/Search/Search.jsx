@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import SearchResult, { SearchItem } from "./SearchResult";
+import { category } from "../../../api/tmdbAPI";
+import { useDebounce } from "../../../Hooks";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 import RestartAltRoundedIcon from "@mui/icons-material/RestartAltRounded";
+
 import "../Search/search.scss";
-import { category } from "../../../api/tmdbAPI";
 
 function Search(props) {
   //states
@@ -13,26 +15,34 @@ function Search(props) {
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const debounced = useDebounce(searchValue, 500);
+
   //ref
   const inputRef = useRef();
   const resultRef = useRef();
 
   //fetch api search results
   useEffect(() => {
-    if (!searchValue.trim()) {
+    if (!debounced.trim()) {
       return;
     }
 
+    setLoading(true);
+
     fetch(
       `https://api.themoviedb.org/3/search/tv?api_key=3c25efec2428a20e51e79d6884070527&page=1&query=${encodeURIComponent(
-        searchValue
+        debounced
       )}`
     )
       .then((response) => response.json())
       .then((response) => {
         setSearchResult(response.results);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
       });
-  }, [searchValue]);
+  }, [debounced]);
 
   //hide search results
   useEffect(() => {
@@ -52,9 +62,9 @@ function Search(props) {
     };
   }, [showResult]);
 
-  const handleSearch = () => {
-    console.log("clicked");
-  };
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  // };
 
   const handleClear = () => {
     setSearchValue("");
@@ -72,7 +82,7 @@ function Search(props) {
   return (
     <div style={{ position: "relative" }}>
       <div className="navbar-searchBox">
-        <button className="search-btn" type="submit" onClick={handleSearch}>
+        <button className="search-btn" onMouseDown={(e) => e.preventDefault()}>
           <SearchIcon fontSize="medium" className="search-icon" />
         </button>
 
@@ -85,13 +95,12 @@ function Search(props) {
           onChange={onChangeSearch}
           onFocus={() => setShowResult(true)}
         />
-        {!!searchValue && (
+        {!!searchValue && !loading && (
           <button className="clear-btn" onClick={handleClear}>
             <ClearRoundedIcon />
           </button>
         )}
-
-        {/* <RestartAltRoundedIcon className="loading" /> */}
+        {loading && <RestartAltRoundedIcon className="loading" />}
       </div>
       {showResult && searchResult.length > 0 ? (
         <SearchResult ref={resultRef}>
@@ -100,9 +109,7 @@ function Search(props) {
             <SearchItem key={index} item={result} category={category.tv} />
           ))}
         </SearchResult>
-      ) : (
-        ""
-      )}
+      ) : null}
     </div>
   );
 }
