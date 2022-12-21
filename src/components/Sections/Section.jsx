@@ -1,27 +1,14 @@
 import React from "react";
 import "../Sections/section.scss";
-import Skeleton from "@mui/material/Skeleton";
-const Section = (props) => {
-  const { loading = true } = props;
 
-  return (
-    <section className={`section-ani ${props.className}`}>
-      <div className="title">
-        {loading ? (
-          <h1 className="title-name">{props.title}</h1>
-        ) : (
-          <Skeleton variant="text" height={50} width={220} />
-        )}
-      </div>
-      <SectionContent>{props.children}</SectionContent>
-    </section>
-  );
+const Section = (props) => {
+  return <section className="section-ani">{props.children}</section>;
 };
 
-const SectionContent = (props) => {
+export const SectionContent = (props) => {
   return (
     <>
-      <div className="section-content">{props.children}</div>
+      <div className={`section-content ${props.cName}`}>{props.children}</div>
     </>
   );
 };
