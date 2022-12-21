@@ -5,6 +5,10 @@ export const category = {
   tv: "tv",
 };
 
+export const discover = {
+  discover: "discover",
+};
+
 export const movieType = {
   upcoming: "upcoming",
   popular: "popular",
@@ -22,8 +26,16 @@ const tmdbAPI = {
     const url = "movie/" + movieType[type];
     return axiosClient.get(url, params);
   },
+  getMoviesListWithGenre: (type, params) => {
+    const url = "movie/" + movieType[type];
+    return axiosClient.get(url, params);
+  },
   getTvList: (type, params) => {
     const url = "tv/" + tvType[type];
+    return axiosClient.get(url, params);
+  },
+  getTvListWithAll: (params) => {
+    const url = "discover/tv";
     return axiosClient.get(url, params);
   },
   getVideos: (cate, id) => {

@@ -20,7 +20,10 @@ const Button = (props) => {
 export const OutlineButton = (props) => {
   return (
     <>
-      <button className={`ani-button-outline ${props.cName}`}>
+      <button
+        className={`ani-button-outline ${props.cName}`}
+        onClick={props.onClick ? () => props.onClick() : null}
+      >
         <span>{props.name}</span>
       </button>
     </>

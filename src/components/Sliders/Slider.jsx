@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import tmdbAPI, { category, movieType } from "../../api/tmdbAPI";
+import tmdbAPI, { category, tvType } from "../../api/tmdbAPI";
 import apiConfig from "../../api/apiConfig";
 import PlayCircle from "@mui/icons-material/PlayCircleOutlineRounded";
 import Button from "../../components/Features/Button/Button";
@@ -18,9 +18,9 @@ const Slider = () => {
 
   useEffect(() => {
     const getAnimeItems = async () => {
-      const params = { page: 10 };
+      const params = { with_genres: 16 };
       try {
-        const response = await tmdbAPI.getMoviesList(movieType.popular, {
+        const response = await tmdbAPI.getTvList(tvType.popular, {
           params,
         });
         setAnimeItems(response.data.results.slice(0, 7));
@@ -108,13 +108,13 @@ const SlideItem = (props) => {
             />
           </div>
           <div className="slide-item__content__info">
-            <h2 className="title">{item.title}</h2>
+            <h2 className="title">{item.title || item.name}</h2>
             <div className="overview">{item.overview}</div>
             <div className="buttons">
               <Button
                 name="WATCH NOW"
                 cName="watch-now-btn"
-                onClick={() => navigate("/movie/" + item.id)}
+                onClick={() => navigate("/tv/" + item.id)}
               />
               <div className="watch-trailer-btn">
                 <PlayCircle fontSize="large" />

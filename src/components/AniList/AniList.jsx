@@ -13,7 +13,7 @@ const AniList = (props) => {
   useEffect(() => {
     const getList = async () => {
       let response = null;
-      const params = {};
+      const params = { with_genres: 16 };
 
       if (props.type !== "similar") {
         switch (props.category) {

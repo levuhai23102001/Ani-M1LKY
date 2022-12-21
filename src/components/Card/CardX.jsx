@@ -58,7 +58,7 @@ const CardX = (props) => {
           <div className="card-bottom">
             <div className="card-view">
               <VisibilityIcon fontSize="small" />
-              <span>15.000 views</span>
+              <span>{item.vote_count} views</span>
             </div>
             {/* <FavoriteBorderIcon fontSize="medium" className="btn-fav" /> */}
           </div>

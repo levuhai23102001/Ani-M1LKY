@@ -7,9 +7,11 @@ import { OutlineButton } from "../../components/Features/Button/Button";
 import Skeleton from "@mui/material/Skeleton";
 
 import "../Home/home.scss";
+import { useNavigate } from "react-router-dom";
 
 function Home(props) {
   const { loading = true } = props;
+  const navigate = useNavigate();
   return (
     <>
       <div className="wrapper">
@@ -26,7 +28,11 @@ function Home(props) {
                     <Skeleton variant="text" height={50} width={220} />
                   )}
                 </div>
-                <OutlineButton name="View more" cName="viewMore-btn" />
+                <OutlineButton
+                  name="View more"
+                  cName="viewMore-btn"
+                  onClick={() => navigate("/anime")}
+                />
               </div>
 
               <AniList category={category.tv} type={tvType.popular} />
@@ -43,7 +49,11 @@ function Home(props) {
                     <Skeleton variant="text" height={50} width={220} />
                   )}
                 </div>
-                <OutlineButton name="View more" cName="viewMore-btn" />
+                <OutlineButton
+                  name="View more"
+                  cName="viewMore-btn"
+                  onClick={() => navigate("/anime")}
+                />
               </div>
 
               <AniList category={category.tv} type={tvType.top_rated} />
@@ -60,7 +70,11 @@ function Home(props) {
                     <Skeleton variant="text" height={50} width={220} />
                   )}
                 </div>
-                <OutlineButton name="View more" cName="viewMore-btn" />
+                <OutlineButton
+                  name="View more"
+                  cName="viewMore-btn"
+                  onClick={() => navigate("/anime")}
+                />
               </div>
 
               <AniList category={category.tv} type={tvType.on_the_air} />

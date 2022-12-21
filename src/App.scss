@@ -82,27 +82,6 @@ li {
         margin: 0 30px;
         // min-height: 100vh;
         // padding: 0 40px;
-        .genre-btn-list {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0 20px;
-          margin-left: 20px;
-        }
-        .btn-list-layout {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          gap: 0 10px;
-          svg {
-            height: 35px;
-            width: 40px;
-            padding: 5px;
-            border-radius: 8px;
-            border: 1px solid;
-            cursor: pointer;
-          }
-        }
       }
     }
   }
