@@ -51,7 +51,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li className="sidebar-menu-item">
-            <NavLink to="/videos" className="menu-item__link">
+            <NavLink to="/reels" className="menu-item__link">
               <WebhookIcon fontSize="large" />
               <span className="menu-item-name">Reels</span>
             </NavLink>

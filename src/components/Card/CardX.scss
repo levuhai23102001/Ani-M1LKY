@@ -4,13 +4,13 @@
   --spacing: 20px;
   --column: 6;
   position: relative;
+  display: flex;
+  flex-direction: column;
   border-radius: 12px;
   overflow: hidden;
   width: calc(calc(100% / var(--column) - var(--spacing)));
   margin-left: var(--spacing);
   margin-bottom: var(--spacing);
-  display: flex;
-  flex-direction: column;
   // .card-rank {
   // }
   .card-ep {

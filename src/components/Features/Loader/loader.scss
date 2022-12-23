@@ -1,0 +1,64 @@
+@use "../../../scss/" as *;
+
+.ani-loader__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ani-loader {
+  width: 80px;
+  height: 40px;
+  position: relative;
+}
+
+.ani-loader::before,
+.ani-loader::after {
+  position: absolute;
+  content: "";
+  top: 6px;
+  background-color: $main-color;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  animation: ani-loader-anim 1s linear infinite;
+}
+
+.ani-loader::after {
+  background-color: $second-color;
+  animation-delay: 0.5s;
+}
+
+@keyframes ani-loader-anim {
+  0%,
+  100% {
+    top: 6px;
+    left: 0px;
+    width: 28px;
+    height: 28px;
+    z-index: 0;
+  }
+
+  25% {
+    top: 0px;
+    height: 40px;
+    width: 40px;
+    z-index: 1;
+    left: 20px;
+  }
+
+  50% {
+    top: 6px;
+    width: 28px;
+    height: 28px;
+    left: 48px;
+  }
+
+  75% {
+    top: 8px;
+    width: 28px;
+    height: 28px;
+    left: 26px;
+  }
+}

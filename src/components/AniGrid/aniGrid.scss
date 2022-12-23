@@ -1,0 +1,17 @@
+@use "../../scss/" as *;
+
+.ani-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin-bottom: 3rem;
+  margin-left: -20px;
+  .ani-card {
+    --spacing: 20px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    width: calc(100% - var(--spacing));
+    margin-left: var(--spacing);
+    margin-bottom: var(--spacing);
+  }
+}

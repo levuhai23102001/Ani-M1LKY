@@ -34,6 +34,10 @@ const tmdbAPI = {
     const url = "tv/" + tvType[type];
     return axiosClient.get(url, params);
   },
+  getTvListWithGenre: (type, params) => {
+    const url = "tv/" + tvType[type];
+    return axiosClient.get(url, params);
+  },
   getTvListWithAll: (params) => {
     const url = "discover/tv";
     return axiosClient.get(url, params);
