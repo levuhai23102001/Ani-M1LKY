@@ -6,7 +6,11 @@ import MyRoutes from "./Routers/MyRoutes";
 import ScrollToTop from "./components/Features/ScrollToTop/ScrollToTop";
 import RefreshPage from "./components/Features/ScrollToTop/RefreshPage";
 import UpToTop from "./components/Features/Button/UpToTop";
+
+import { SkeletonTheme } from "react-loading-skeleton";
+
 import "./App.scss";
+import { Skeleton } from "@mui/material";
 
 function App() {
   const [showUpToTop, setShowUpToTop] = useState(false);
@@ -24,17 +28,19 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      <div className="ani-main-content">
-        <Sidebar />
-        <div className="main-content-container">
-          <ScrollToTop />
-          <RefreshPage />
-          <MyRoutes />
-          {showUpToTop && <UpToTop />}
-          <Footer />
+      <SkeletonTheme baseColor="#313131" highlightColor="#525252">
+        <Navbar />
+        <div className="ani-main-content">
+          <Sidebar />
+          <div className="main-content-container">
+            <ScrollToTop />
+            <RefreshPage />
+            <MyRoutes />
+            {showUpToTop && <UpToTop />}
+            <Footer />
+          </div>
         </div>
-      </div>
+      </SkeletonTheme>
     </div>
   );
 }

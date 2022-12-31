@@ -47,7 +47,7 @@ const Sidebar = () => {
           <li className="sidebar-menu-item">
             <NavLink to="/rank" className="menu-item__link">
               <Filter1Icon fontSize="large" />
-              <span className="menu-item-name">Rank</span>
+              <span className="menu-item-name">Anime Top 50</span>
             </NavLink>
           </li>
           <li className="sidebar-menu-item">

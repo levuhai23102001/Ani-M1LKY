@@ -5,7 +5,8 @@ import ButtonPlay from "../Features/Button/ButtonPlay";
 import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import Skeleton from "@mui/material/Skeleton";
+
+import Skeleton from "react-loading-skeleton";
 
 import { category } from "../../api/tmdbAPI";
 import apiConfig from "../../api/apiConfig";
@@ -19,52 +20,30 @@ const CardX = (props) => {
 
   const url = "/" + category[props.category] + "/" + item.id;
 
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-  }, []);
   return (
     <div className="ani-card">
       <div className="card-rank">
         <span>{props.rank}</span>
       </div>
-
-      {loading ? (
-        <div className="card-ep">
-          <span>{item.vote_average}</span>
+      <div className="card-ep">
+        <span>{item.vote_average}</span>
+      </div>
+      <div className="card-top">
+        <img className="card-img" src={poster} alt="" />
+        <div className="overlay">
+          <FavoriteBorderIcon fontSize="medium" className="btn-fav" />
+          <ButtonPlay link={url} />
+          <ShareRoundedIcon />
         </div>
-      ) : null}
-
-      {loading ? (
-        <div className="card-top">
-          <img className="card-img" src={poster} alt="" />
-          <div className="overlay">
-            <FavoriteBorderIcon fontSize="medium" className="btn-fav" />
-            <ButtonPlay link={url} />
-            <ShareRoundedIcon />
-          </div>
-        </div>
-      ) : (
-        <Skeleton variant="rectangular" animation="wave" height={307} />
-      )}
+      </div>
       <div className="card-content">
-        {loading ? (
-          <h3 className="card-title">{item.title || item.name}</h3>
-        ) : (
-          <Skeleton animation="wave" variant="text" height={15} />
-        )}
-        {loading ? (
-          <div className="card-bottom">
-            <div className="card-view">
-              <VisibilityIcon fontSize="small" />
-              <span>{item.vote_count} views</span>
-            </div>
-            {/* <FavoriteBorderIcon fontSize="medium" className="btn-fav" /> */}
+        <h3 className="card-title">{item.title || item.name}</h3>
+        <div className="card-bottom">
+          <div className="card-view">
+            <VisibilityIcon fontSize="small" />
+            <span>{item.vote_count} views</span>
           </div>
-        ) : (
-          <Skeleton animation="wave" variant="text" height={12} width={150} />
-        )}
+        </div>
       </div>
     </div>
   );
