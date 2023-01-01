@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import CardSkeleton from "../Features/Skeleton/CardSkeleton/CardSkeleton";
+
 import CardX from "../Card/CardX";
 import Loader from "../Features/Loader/Loader";
 
@@ -13,6 +15,8 @@ const AniGrid = (props) => {
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getList();
@@ -27,7 +31,7 @@ const AniGrid = (props) => {
       setItems([...items, ...response.data.results]);
       setTotalPage(response.data.total_pages);
       setPage(page + 1);
-      console.log(response.data);
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }
@@ -43,6 +47,7 @@ const AniGrid = (props) => {
         endMessage={<h2>Ayyo!! You have see it all</h2>}
       >
         <div className="ani-grid">
+          {loading && <CardSkeleton cards={20} />}
           {items.map((item, i) => (
             <CardX category={props.category} item={item} key={i} />
           ))}

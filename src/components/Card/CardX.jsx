@@ -6,8 +6,6 @@ import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-import Skeleton from "react-loading-skeleton";
-
 import { category } from "../../api/tmdbAPI";
 import apiConfig from "../../api/apiConfig";
 
