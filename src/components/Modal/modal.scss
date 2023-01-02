@@ -1,6 +1,6 @@
 @use "../../scss/" as *;
 
-.ani-modal {
+.modal {
   @include flex(center, center);
   position: fixed;
   z-index: 100;
@@ -21,11 +21,12 @@
   &__content {
     padding: 2rem;
     background-color: $body-bg;
-    width: 50%;
+    width: 75%;
     opacity: 0;
     transform: translateY(-250px);
     transition: transform 0.6s ease, opacity 0.6s ease;
     position: relative;
+    border-radius: 12px;
 
     // @include tablet {
     //   width: 80%;

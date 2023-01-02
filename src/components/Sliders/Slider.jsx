@@ -4,7 +4,7 @@ import tmdbAPI, { category, tvType } from "../../api/tmdbAPI";
 import apiConfig from "../../api/apiConfig";
 import PlayCircle from "@mui/icons-material/PlayCircleOutlineRounded";
 import Button from "../../components/Features/Button/Button";
-// import Modal, { ModalContent } from "../Modal/Modal";
+import Modal, { ModalContent } from "../Modal/Modal";
 import { Pagination, Navigation, Keyboard, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -59,9 +59,9 @@ const Slider = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* {animeItems.map((item, index) => (
+      {animeItems.map((item, index) => (
         <TrailerModal key={index} item={item} />
-      ))} */}
+      ))}
     </div>
   );
 };
@@ -75,23 +75,23 @@ const SlideItem = (props) => {
     item.backdrop_path ? item.backdrop_path : item.poster_path
   );
 
-  // const setModalActive = async () => {
-  //   const modal = document.querySelector(`#modal_${item.id}`);
+  const setModalActive = async () => {
+    const modal = document.querySelector(`#modal_${item.id}`);
 
-  //   const videos = await tmdbAPI.getVideos(category.movie, item.id);
+    const videos = await tmdbAPI.getVideos(category.tv, item.id);
 
-  //   if (videos.data.results.length > 0) {
-  //     const videoSrc =
-  //       "https://www.youtube.com/embed/" + videos.data.results[0].key;
-  //     modal
-  //       .querySelector(".ani-modal__content > iframe")
-  //       .setAttribute("src", videoSrc);
-  //   } else {
-  //     modal.querySelector(".ani-modal__content").innerHTML = "No trailer";
-  //   }
+    if (videos.data.results.length > 0) {
+      const videSrc =
+        "https://www.youtube.com/embed/" + videos.data.results[1].key;
+      modal
+        .querySelector(".modal__content > iframe")
+        .setAttribute("src", videSrc);
+    } else {
+      modal.querySelector(".modal__content").innerHTML = "No trailer";
+    }
 
-  //   modal.classList.toggle("active");
-  // };
+    modal.classList.toggle("active");
+  };
 
   return (
     <>
@@ -116,7 +116,7 @@ const SlideItem = (props) => {
                 cName="watch-now-btn"
                 onClick={() => navigate("/tv/" + item.id)}
               />
-              <div className="watch-trailer-btn">
+              <div className="watch-trailer-btn" onClick={setModalActive}>
                 <PlayCircle fontSize="large" />
                 <span>WATCH TRAILER</span>
               </div>
@@ -128,26 +128,26 @@ const SlideItem = (props) => {
   );
 };
 
-// const TrailerModal = (props) => {
-//   const item = props.item;
+const TrailerModal = (props) => {
+  const item = props.item;
 
-//   const iframeRef = useRef(null);
+  const iframeRef = useRef(null);
 
-//   const onClose = () => iframeRef.current.setAttribute("src", "");
+  const onClose = () => iframeRef.current.setAttribute("src", "");
 
-//   return (
-//     <Modal active={false} id={`modal_${item.id}`}>
-//       <ModalContent onClose={onClose}>
-//         <iframe
-//           ref={iframeRef}
-//           width="100%"
-//           height="500px"
-//           title="trailer"
-//         ></iframe>
-//       </ModalContent>
-//     </Modal>
-//   );
-// };
+  return (
+    <Modal active={false} id={`modal_${item.id}`}>
+      <ModalContent onClose={onClose}>
+        <iframe
+          ref={iframeRef}
+          width="100%"
+          height="600px"
+          title="trailer"
+        ></iframe>
+      </ModalContent>
+    </Modal>
+  );
+};
 
 export default Slider;
 
