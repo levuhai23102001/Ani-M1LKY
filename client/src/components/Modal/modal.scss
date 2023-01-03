@@ -1,6 +1,6 @@
 @use "../../scss/" as *;
 
-.modal {
+.ani-modal {
   @include flex(center, center);
   position: fixed;
   z-index: 100;

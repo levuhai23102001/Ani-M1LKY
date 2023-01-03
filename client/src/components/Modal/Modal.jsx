@@ -11,7 +11,7 @@ const Modal = (props) => {
   }, [props.active]);
 
   return (
-    <div id={props.id} className={`modal ${active ? "active" : ""}`}>
+    <div id={props.id} className={`ani-modal ${active ? "active" : ""}`}>
       {props.children}
     </div>
   );
@@ -31,9 +31,9 @@ export const ModalContent = (props) => {
   };
 
   return (
-    <div ref={contentRef} className="modal__content">
+    <div ref={contentRef} className="ani-modal__content">
       {props.children}
-      <div className="modal__content__close" onClick={closeModal}>
+      <div className="ani-modal__content__close" onClick={closeModal}>
         <CloseRoundedIcon />
       </div>
     </div>

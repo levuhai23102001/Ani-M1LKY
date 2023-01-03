@@ -76,7 +76,7 @@ const SlideItem = (props) => {
   );
 
   const setModalActive = async () => {
-    const modal = document.querySelector(`#modal_${item.id}`);
+    const modal = document.querySelector(`#ani-modal_${item.id}`);
 
     const videos = await tmdbAPI.getVideos(category.tv, item.id);
 
@@ -84,10 +84,10 @@ const SlideItem = (props) => {
       const videSrc =
         "https://www.youtube.com/embed/" + videos.data.results[1].key;
       modal
-        .querySelector(".modal__content > iframe")
+        .querySelector(".ani-modal__content > iframe")
         .setAttribute("src", videSrc);
     } else {
-      modal.querySelector(".modal__content").innerHTML = "No trailer";
+      modal.querySelector(".ani-modal__content").innerHTML = "No trailer";
     }
 
     modal.classList.toggle("active");
@@ -136,7 +136,7 @@ const TrailerModal = (props) => {
   const onClose = () => iframeRef.current.setAttribute("src", "");
 
   return (
-    <Modal active={false} id={`modal_${item.id}`}>
+    <Modal active={false} id={`ani-modal_${item.id}`}>
       <ModalContent onClose={onClose}>
         <iframe
           ref={iframeRef}

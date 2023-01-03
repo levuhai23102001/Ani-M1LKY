@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import SearchResult, { SearchItem } from "./SearchResult";
-import { category } from "../../../api/tmdbAPI";
+import tmdbAPI, { category } from "../../../api/tmdbAPI";
 import { useDebounce } from "../../../Hooks";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
@@ -15,7 +15,7 @@ function Search(props) {
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const debounced = useDebounce(searchValue, 500);
+  const debouncedValue = useDebounce(searchValue, 500);
 
   //ref
   const inputRef = useRef();
@@ -23,26 +23,33 @@ function Search(props) {
 
   //fetch api search results
   useEffect(() => {
-    if (!debounced.trim()) {
+    if (!debouncedValue.trim()) {
       return;
     }
+    const getSearch = async () => {
+      setLoading(true);
 
-    setLoading(true);
+      const params = { query: debouncedValue };
 
-    fetch(
-      `https://api.themoviedb.org/3/search/tv?api_key=3c25efec2428a20e51e79d6884070527&page=1&query=${encodeURIComponent(
-        debounced
-      )}`
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        setSearchResult(response.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-      });
-  }, [debounced]);
+      const response = await tmdbAPI.search(category.tv, { params });
+      setSearchResult(response.data.results);
+      setLoading(false);
+    };
+    getSearch();
+    // fetch(
+    //   `https://api.themoviedb.org/3/search/tv?api_key=3c25efec2428a20e51e79d6884070527&page=1&query=${encodeURIComponent(
+    //     debounced
+    //   )}`
+    // )
+    //   .then((response) => response.json())
+    //   .then((response) => {
+    //     setSearchResult(response.results);
+    //     setLoading(false);
+    //   })
+    //   .catch((error) => {
+    //     setLoading(false);
+    //   });
+  }, [debouncedValue]);
 
   //hide search results
   useEffect(() => {
