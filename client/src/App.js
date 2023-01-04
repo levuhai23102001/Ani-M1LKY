@@ -10,7 +10,6 @@ import UpToTop from "./components/Features/Button/UpToTop";
 import { SkeletonTheme } from "react-loading-skeleton";
 
 import "./App.scss";
-import { Skeleton } from "@mui/material";
 
 function App() {
   const [showUpToTop, setShowUpToTop] = useState(false);
